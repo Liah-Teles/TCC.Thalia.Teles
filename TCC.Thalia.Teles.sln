@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCC.Thalia.Teles.App", "TCC.Thalia.Teles.App\TCC.Thalia.Teles.App.csproj", "{BD08E3A6-2E16-45D8-B35A-BAEE8E075C43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{553F6D39-E2FA-4A4D-92AF-67461B76CC9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Domain", "3. Domain", "{5E94F6AB-5DAC-4E03-AAAE-5233EB242E46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCC.Thalia.Teles.Dominio", "TCC.Thalia.Teles.Dominio\TCC.Thalia.Teles.Dominio.csproj", "{1DD4375A-CD4B-434B-85D8-761278DA8E61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Aplicacao", "2. Aplicacao", "{28E3AF0E-EA2A-44C5-B225-95EB633A11B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCC.Thalia.Teles.Aplicacao", "TCC.Thalia.Teles.Aplicacao\TCC.Thalia.Teles.Aplicacao.csproj", "{F48F7A7B-7144-45F1-89A5-CE333FFAFC85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infra", "4. Infra", "{F24F0C11-9AD6-4850-AA94-F046D826F420}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCC.Thalia.Teles.Infra.Dados", "TCC.Thalia.Teles.Infra.Dados\TCC.Thalia.Teles.Infra.Dados.csproj", "{02064CCA-1C54-422C-B06D-7582C7C40EB2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD08E3A6-2E16-45D8-B35A-BAEE8E075C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD08E3A6-2E16-45D8-B35A-BAEE8E075C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD08E3A6-2E16-45D8-B35A-BAEE8E075C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD08E3A6-2E16-45D8-B35A-BAEE8E075C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD4375A-CD4B-434B-85D8-761278DA8E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD4375A-CD4B-434B-85D8-761278DA8E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD4375A-CD4B-434B-85D8-761278DA8E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD4375A-CD4B-434B-85D8-761278DA8E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F48F7A7B-7144-45F1-89A5-CE333FFAFC85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F48F7A7B-7144-45F1-89A5-CE333FFAFC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F48F7A7B-7144-45F1-89A5-CE333FFAFC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F48F7A7B-7144-45F1-89A5-CE333FFAFC85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02064CCA-1C54-422C-B06D-7582C7C40EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02064CCA-1C54-422C-B06D-7582C7C40EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02064CCA-1C54-422C-B06D-7582C7C40EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02064CCA-1C54-422C-B06D-7582C7C40EB2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD08E3A6-2E16-45D8-B35A-BAEE8E075C43} = {553F6D39-E2FA-4A4D-92AF-67461B76CC9A}
+		{1DD4375A-CD4B-434B-85D8-761278DA8E61} = {5E94F6AB-5DAC-4E03-AAAE-5233EB242E46}
+		{F48F7A7B-7144-45F1-89A5-CE333FFAFC85} = {28E3AF0E-EA2A-44C5-B225-95EB633A11B9}
+		{02064CCA-1C54-422C-B06D-7582C7C40EB2} = {F24F0C11-9AD6-4850-AA94-F046D826F420}
+	EndGlobalSection
+EndGlobal
