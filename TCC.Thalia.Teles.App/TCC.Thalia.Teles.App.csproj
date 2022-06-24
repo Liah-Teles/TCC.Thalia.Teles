@@ -6,6 +6,30 @@
         <Nullable>enable</Nullable>
         <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Authors>Thalia Teles</Authors>
+        <Product>Oasis - Centro estético</Product>
+        <Description>TCC para conclusão de curso</Description>
+        <PackageId>Oasis - Centro estético</PackageId>
+        <RepositoryUrl>https://github.com/Liah-Teles/TCC.Thalia.Teles</RepositoryUrl>
+        <AssemblyName>Oasis - Centro estético</AssemblyName>
     </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TCC.Thalia.Teles.Dominio\TCC.Thalia.Teles.Dominio.csproj" />
+      <ProjectReference Include="..\TCC.Thalia.Teles.Infra.Dados\TCC.Thalia.Teles.Infra.Dados.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Paineis\Promocoes\AdicionarPromocoesTela.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Paineis\Servicos\AdicionarServicoTela.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Properties\" />
+    </ItemGroup>
 
 </Project>

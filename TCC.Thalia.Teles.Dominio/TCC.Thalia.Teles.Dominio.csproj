@@ -4,6 +4,14 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <PackageId>Dominio</PackageId>
+        <Authors>Dominio Oasis</Authors>
+        <Company>Thalia Teles</Company>
+        <AssemblyName>Dominio Oasis</AssemblyName>
+        <Product>Dominio Oasis</Product>
+        <Copyright>Thalia Teles</Copyright>
+        <RepositoryUrl>https://github.com/Liah-Teles/TCC.Thalia.Teles</RepositoryUrl>
+        <RootNamespace>TCC.Thalia.Teles.Dominio</RootNamespace>
     </PropertyGroup>
 
 </Project>

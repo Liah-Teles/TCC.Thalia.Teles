@@ -4,19 +4,17 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <AssemblyName>Infra Oasis</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Features\Agendamentos\**" />
+      <EmbeddedResource Remove="Features\Agendamentos\**" />
+      <None Remove="Features\Agendamentos\**" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\TCC.Thalia.Teles.Dominio\TCC.Thalia.Teles.Dominio.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Features\Agendamentos" />
-      <Folder Include="Features\Clientes" />
     </ItemGroup>
 
 </Project>

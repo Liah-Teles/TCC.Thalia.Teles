@@ -36,12 +36,17 @@ partial class PrincipalTela
             this.botaoServicos = new System.Windows.Forms.Button();
             this.botaoAtendimentos = new System.Windows.Forms.Button();
             this.painelLogo = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.painelTopo = new System.Windows.Forms.Panel();
+            this.botaoConcluirAtendimento = new System.Windows.Forms.Button();
             this.painelCentral = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.painelLateral.SuspendLayout();
             this.painelLogo.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // painelLateral
@@ -56,21 +61,21 @@ partial class PrincipalTela
             this.painelLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.painelLateral.Location = new System.Drawing.Point(0, 0);
             this.painelLateral.Name = "painelLateral";
-            this.painelLateral.Size = new System.Drawing.Size(189, 841);
+            this.painelLateral.Size = new System.Drawing.Size(142, 640);
             this.painelLateral.TabIndex = 0;
             // 
             // botaoFinanceiro
             // 
             this.botaoFinanceiro.BackColor = System.Drawing.Color.Blue;
             this.botaoFinanceiro.FlatAppearance.BorderSize = 0;
-            this.botaoFinanceiro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.botaoFinanceiro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botaoFinanceiro.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.botaoFinanceiro.ForeColor = System.Drawing.Color.White;
-            this.botaoFinanceiro.Location = new System.Drawing.Point(0, 357);
+            this.botaoFinanceiro.Location = new System.Drawing.Point(0, 313);
             this.botaoFinanceiro.Name = "botaoFinanceiro";
-            this.botaoFinanceiro.Size = new System.Drawing.Size(189, 60);
+            this.botaoFinanceiro.Size = new System.Drawing.Size(142, 50);
             this.botaoFinanceiro.TabIndex = 5;
-            this.botaoFinanceiro.Text = "Financeiro";
+            this.botaoFinanceiro.Text = "Atendimentos";
             this.botaoFinanceiro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.botaoFinanceiro.UseVisualStyleBackColor = false;
             this.botaoFinanceiro.Click += new System.EventHandler(this.botaoFinanceiro_Click);
@@ -79,12 +84,12 @@ partial class PrincipalTela
             // 
             this.botaoClientes.BackColor = System.Drawing.Color.Blue;
             this.botaoClientes.FlatAppearance.BorderSize = 0;
-            this.botaoClientes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.botaoClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botaoClientes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.botaoClientes.ForeColor = System.Drawing.Color.White;
-            this.botaoClientes.Location = new System.Drawing.Point(0, 298);
+            this.botaoClientes.Location = new System.Drawing.Point(0, 263);
             this.botaoClientes.Name = "botaoClientes";
-            this.botaoClientes.Size = new System.Drawing.Size(189, 60);
+            this.botaoClientes.Size = new System.Drawing.Size(142, 50);
             this.botaoClientes.TabIndex = 4;
             this.botaoClientes.Text = "Clientes";
             this.botaoClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -95,12 +100,12 @@ partial class PrincipalTela
             // 
             this.botaoPromocoes.BackColor = System.Drawing.Color.Blue;
             this.botaoPromocoes.FlatAppearance.BorderSize = 0;
-            this.botaoPromocoes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.botaoPromocoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botaoPromocoes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.botaoPromocoes.ForeColor = System.Drawing.Color.White;
-            this.botaoPromocoes.Location = new System.Drawing.Point(0, 239);
+            this.botaoPromocoes.Location = new System.Drawing.Point(0, 213);
             this.botaoPromocoes.Name = "botaoPromocoes";
-            this.botaoPromocoes.Size = new System.Drawing.Size(189, 60);
+            this.botaoPromocoes.Size = new System.Drawing.Size(142, 50);
             this.botaoPromocoes.TabIndex = 3;
             this.botaoPromocoes.Text = "Promoções";
             this.botaoPromocoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -111,12 +116,12 @@ partial class PrincipalTela
             // 
             this.botaoServicos.BackColor = System.Drawing.Color.Blue;
             this.botaoServicos.FlatAppearance.BorderSize = 0;
-            this.botaoServicos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.botaoServicos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botaoServicos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.botaoServicos.ForeColor = System.Drawing.Color.White;
-            this.botaoServicos.Location = new System.Drawing.Point(0, 180);
+            this.botaoServicos.Location = new System.Drawing.Point(0, 163);
             this.botaoServicos.Name = "botaoServicos";
-            this.botaoServicos.Size = new System.Drawing.Size(189, 60);
+            this.botaoServicos.Size = new System.Drawing.Size(142, 50);
             this.botaoServicos.TabIndex = 2;
             this.botaoServicos.Text = "Serviços";
             this.botaoServicos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -127,27 +132,37 @@ partial class PrincipalTela
             // 
             this.botaoAtendimentos.BackColor = System.Drawing.Color.Blue;
             this.botaoAtendimentos.FlatAppearance.BorderSize = 0;
-            this.botaoAtendimentos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.botaoAtendimentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botaoAtendimentos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.botaoAtendimentos.ForeColor = System.Drawing.Color.White;
-            this.botaoAtendimentos.Location = new System.Drawing.Point(0, 121);
+            this.botaoAtendimentos.Location = new System.Drawing.Point(0, 113);
             this.botaoAtendimentos.Name = "botaoAtendimentos";
-            this.botaoAtendimentos.Size = new System.Drawing.Size(189, 60);
+            this.botaoAtendimentos.Size = new System.Drawing.Size(142, 50);
             this.botaoAtendimentos.TabIndex = 1;
-            this.botaoAtendimentos.Text = "Atendimentos";
+            this.botaoAtendimentos.Text = "Agenda";
             this.botaoAtendimentos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.botaoAtendimentos.UseVisualStyleBackColor = false;
             this.botaoAtendimentos.Click += new System.EventHandler(this.botaoAtendimentos_Click);
             // 
             // painelLogo
             // 
-            this.painelLogo.Controls.Add(this.label2);
-            this.painelLogo.Controls.Add(this.label1);
+            this.painelLogo.Controls.Add(this.panel2);
             this.painelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.painelLogo.Location = new System.Drawing.Point(0, 0);
             this.painelLogo.Name = "painelLogo";
-            this.painelLogo.Size = new System.Drawing.Size(189, 123);
+            this.painelLogo.Size = new System.Drawing.Size(142, 107);
             this.painelLogo.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkBlue;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(142, 86);
+            this.panel2.TabIndex = 2;
             // 
             // label2
             // 
@@ -155,7 +170,7 @@ partial class PrincipalTela
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(32, 65);
+            this.label2.Location = new System.Drawing.Point(12, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 21);
             this.label2.TabIndex = 1;
@@ -166,7 +181,7 @@ partial class PrincipalTela
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(20, 10);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 65);
             this.label1.TabIndex = 0;
@@ -174,36 +189,66 @@ partial class PrincipalTela
             // 
             // painelTopo
             // 
-            this.painelTopo.BackColor = System.Drawing.Color.Transparent;
+            this.painelTopo.BackColor = System.Drawing.Color.DarkBlue;
             this.painelTopo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.painelTopo.Location = new System.Drawing.Point(189, 0);
+            this.painelTopo.Location = new System.Drawing.Point(142, 0);
             this.painelTopo.Name = "painelTopo";
-            this.painelTopo.Size = new System.Drawing.Size(1245, 86);
+            this.painelTopo.Size = new System.Drawing.Size(896, 86);
             this.painelTopo.TabIndex = 1;
+            // 
+            // botaoConcluirAtendimento
+            // 
+            this.botaoConcluirAtendimento.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.botaoConcluirAtendimento.Location = new System.Drawing.Point(708, 3);
+            this.botaoConcluirAtendimento.Name = "botaoConcluirAtendimento";
+            this.botaoConcluirAtendimento.Size = new System.Drawing.Size(176, 34);
+            this.botaoConcluirAtendimento.TabIndex = 8;
+            this.botaoConcluirAtendimento.Text = "Finalizar atendimentos";
+            this.botaoConcluirAtendimento.UseVisualStyleBackColor = true;
+            this.botaoConcluirAtendimento.Visible = false;
+            this.botaoConcluirAtendimento.Click += new System.EventHandler(this.botaoConcluirAtendimento_Click);
             // 
             // painelCentral
             // 
+            this.painelCentral.BackColor = System.Drawing.Color.White;
             this.painelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.painelCentral.Location = new System.Drawing.Point(189, 86);
+            this.painelCentral.Location = new System.Drawing.Point(142, 86);
             this.painelCentral.Name = "painelCentral";
-            this.painelCentral.Size = new System.Drawing.Size(1245, 755);
+            this.painelCentral.Size = new System.Drawing.Size(896, 554);
             this.painelCentral.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.botaoConcluirAtendimento);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(142, 589);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(896, 51);
+            this.panel1.TabIndex = 3;
             // 
             // PrincipalTela
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1434, 841);
+            this.ClientSize = new System.Drawing.Size(1038, 640);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.painelCentral);
             this.Controls.Add(this.painelTopo);
             this.Controls.Add(this.painelLateral);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PrincipalTela";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Oasis Estetica";
             this.painelLateral.ResumeLayout(false);
             this.painelLogo.ResumeLayout(false);
-            this.painelLogo.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }
@@ -221,4 +266,7 @@ partial class PrincipalTela
     private Label label2;
     private Label label1;
     private Panel painelCentral;
+    private Button botaoConcluirAtendimento;
+    private Panel panel1;
+    private Panel panel2;
 }
