@@ -80,7 +80,7 @@
             // 
             // caixaDateHora
             // 
-            this.caixaDateHora.CustomFormat = "dd:MM:yyyy - HH:mm";
+            this.caixaDateHora.CustomFormat = "dd/MM/yyyy - HH:mm";
             this.caixaDateHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.caixaDateHora.Location = new System.Drawing.Point(146, 66);
             this.caixaDateHora.Name = "caixaDateHora";

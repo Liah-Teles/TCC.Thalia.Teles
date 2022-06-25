@@ -35,7 +35,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
             {
                 Id = _id,
                 Nome = caixaTextoNome.Text,
-                Valor = caixaNumericaValor.Value
+                Valor = caixaNumericaValor.Value + 0.00M
             };
 
             var mensagem = _servico.ObterMensagemNaoValidado();

@@ -1,15 +1,14 @@
-﻿using TCC.Thalia.Teles.Dominio.Features.Clientes;
-using TCC.Thalia.Teles.Dominio.Features.Promocoes;
+﻿using TCC.Thalia.Teles.Dominio.Features.Descontos;
 using TCC.Thalia.Teles.Dominio.Features.Servicos;
 
-namespace TCC.Thalia.Teles.App.Paineis.Promocoes
+namespace TCC.Thalia.Teles.App.Paineis.Descontos
 {
-    public partial class AdicionarPromocoesTela : Form
+    public partial class AdicionarDescontoTela : Form
     {
-        private Promocao _promocao;
+        private Desconto _desconto;
         private List<Servico> _servicos;
 
-        public AdicionarPromocoesTela(List<Servico> servicos)
+        public AdicionarDescontoTela(List<Servico> servicos)
         {
             InitializeComponent();
             _servicos = servicos;
@@ -33,13 +32,27 @@ namespace TCC.Thalia.Teles.App.Paineis.Promocoes
                 return;
             }
 
-            _promocao = new Promocao
+            if (caixaDataInicio.Value.Date >= caixaDataFinal.Value.Date)
             {
-                Desconto = caixaNumericaValor.Value,
-                NomeServico = servicoSelecionado.Nome
+                MessageBox.Show("Data de inicio não pode ser maior ou igual a data final.", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (caixaDataInicio.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Data de inicio invalida, deve ser maior que data de hoje.", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            _desconto = new Desconto
+            {
+                Valor = caixaNumericaValor.Value + 0.00M,
+                NomeServico = servicoSelecionado.Nome,
+                DataInicio = caixaDataInicio.Value.Date,
+                DataFinal = caixaDataFinal.Value.Date,
             };
 
-            var mensagem = _promocao.ObterMensagemNaoValidado();
+            var mensagem = _desconto.ObterMensagemNaoValidado();
 
             if (string.IsNullOrEmpty(mensagem))
             {
@@ -50,9 +63,9 @@ namespace TCC.Thalia.Teles.App.Paineis.Promocoes
             MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public Promocao ObterPromocao()
+        public Desconto ObterDesconto()
         {
-            return _promocao;
+            return _desconto;
         }
     }
 }

@@ -61,6 +61,7 @@
             this.gridServicos.AllowUserToResizeRows = false;
             this.gridServicos.BackgroundColor = System.Drawing.Color.White;
             this.gridServicos.ColumnHeadersHeight = 35;
+            this.gridServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colunaId,
             this.nomeServico,
@@ -71,6 +72,7 @@
             this.gridServicos.Name = "gridServicos";
             this.gridServicos.ReadOnly = true;
             this.gridServicos.RowHeadersVisible = false;
+            this.gridServicos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridServicos.RowTemplate.Height = 25;
             this.gridServicos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.gridServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -83,7 +85,7 @@
             this.colunaId.HeaderText = "Id";
             this.colunaId.Name = "colunaId";
             this.colunaId.ReadOnly = true;
-            this.colunaId.Width = 200;
+            this.colunaId.Width = 50;
             // 
             // nomeServico
             // 

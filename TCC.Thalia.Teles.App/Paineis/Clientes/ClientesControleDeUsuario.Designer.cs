@@ -62,6 +62,7 @@
             this.gridClientes.AllowUserToResizeRows = false;
             this.gridClientes.BackgroundColor = System.Drawing.Color.White;
             this.gridClientes.ColumnHeadersHeight = 35;
+            this.gridClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colunaId,
             this.nomeCliente,
@@ -74,6 +75,7 @@
             this.gridClientes.Name = "gridClientes";
             this.gridClientes.ReadOnly = true;
             this.gridClientes.RowHeadersVisible = false;
+            this.gridClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridClientes.RowTemplate.Height = 25;
             this.gridClientes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.gridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

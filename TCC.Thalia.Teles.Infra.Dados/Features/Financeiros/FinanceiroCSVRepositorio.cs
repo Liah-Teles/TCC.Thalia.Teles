@@ -26,7 +26,7 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Financeiros
                 csvFinanceiro.ValorParcial = financeiro.ValorParcial;
                 csvFinanceiro.DescontoAplicado = financeiro.DescontoAplicado;
                 csvFinanceiro.Atendimento = financeiro.Atendimento;
-                csvFinanceiro.Promocoes = financeiro.Promocoes;
+                csvFinanceiro.Descontos = financeiro.Descontos;
 
                 financeiros.Add(csvFinanceiro);
 

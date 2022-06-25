@@ -33,6 +33,42 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Atendimentos
             }
         }
 
+        public void DeletarPorCpfCliente(string cpfCliente)
+        {
+            var dataAtual = DateTime.Now;
+            var dataMaisUmMes = dataAtual.AddMonths(1);
+            var dataMaisDoisMeses = dataAtual.AddMonths(2);
+
+            var atendimentoEsseMes = ObterTodos(dataAtual).Where(atendimento => atendimento.ClienteCpf == cpfCliente);
+            var atendimento1MesFrente = ObterTodos(dataMaisUmMes).Where(atendimento => atendimento.ClienteCpf == cpfCliente);
+            var atendimento2MesFrente = ObterTodos(dataMaisDoisMeses).Where(atendimento => atendimento.ClienteCpf == cpfCliente);
+
+
+            if (atendimentoEsseMes != null)
+            {
+                foreach (var mes in atendimentoEsseMes)
+                {
+                    Deletar(mes.Id, dataAtual);
+                }
+            }
+
+            if (atendimento1MesFrente != null)
+            {
+                foreach (var mes in atendimento1MesFrente)
+                {
+                    Deletar(mes.Id, dataMaisUmMes);
+                }
+            }
+
+            if (atendimento2MesFrente != null)
+            {
+                foreach (var mes in atendimento2MesFrente)
+                {
+                    Deletar(mes.Id, dataMaisDoisMeses);
+                }
+            }
+        }
+
         public void Deletar(int id, DateTime data)
         {
             var atendimentos = ObterTodos(data);

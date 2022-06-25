@@ -44,9 +44,12 @@
             this.caixaTextoDesconto = new System.Windows.Forms.TextBox();
             this.caixaTextoTotal = new System.Windows.Forms.TextBox();
             this.botaoFinalizar = new System.Windows.Forms.Button();
-            this.caixaListaPromocoes = new System.Windows.Forms.ListBox();
+            this.gridDescontos = new System.Windows.Forms.DataGridView();
+            this.colunaNomeServicoDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colunaValorDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridAtendimentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridServicos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDescontos)).BeginInit();
             this.SuspendLayout();
             // 
             // gridAtendimentos
@@ -57,6 +60,7 @@
             this.gridAtendimentos.AllowUserToResizeRows = false;
             this.gridAtendimentos.BackgroundColor = System.Drawing.Color.White;
             this.gridAtendimentos.ColumnHeadersHeight = 35;
+            this.gridAtendimentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridAtendimentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colunaIdAtendimento,
             this.colunaCliente});
@@ -66,6 +70,7 @@
             this.gridAtendimentos.Name = "gridAtendimentos";
             this.gridAtendimentos.ReadOnly = true;
             this.gridAtendimentos.RowHeadersVisible = false;
+            this.gridAtendimentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridAtendimentos.RowTemplate.Height = 25;
             this.gridAtendimentos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.gridAtendimentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -231,22 +236,51 @@
             this.botaoFinalizar.UseVisualStyleBackColor = true;
             this.botaoFinalizar.Click += new System.EventHandler(this.botaoFinalizar_Click);
             // 
-            // caixaListaPromocoes
+            // gridDescontos
             // 
-            this.caixaListaPromocoes.FormattingEnabled = true;
-            this.caixaListaPromocoes.ItemHeight = 15;
-            this.caixaListaPromocoes.Location = new System.Drawing.Point(521, 240);
-            this.caixaListaPromocoes.Name = "caixaListaPromocoes";
-            this.caixaListaPromocoes.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.caixaListaPromocoes.Size = new System.Drawing.Size(302, 109);
-            this.caixaListaPromocoes.TabIndex = 3;
+            this.gridDescontos.AllowUserToAddRows = false;
+            this.gridDescontos.AllowUserToDeleteRows = false;
+            this.gridDescontos.AllowUserToResizeColumns = false;
+            this.gridDescontos.AllowUserToResizeRows = false;
+            this.gridDescontos.BackgroundColor = System.Drawing.Color.White;
+            this.gridDescontos.ColumnHeadersHeight = 35;
+            this.gridDescontos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colunaNomeServicoDesconto,
+            this.colunaValorDesconto});
+            this.gridDescontos.Enabled = false;
+            this.gridDescontos.GridColor = System.Drawing.Color.White;
+            this.gridDescontos.Location = new System.Drawing.Point(521, 240);
+            this.gridDescontos.MultiSelect = false;
+            this.gridDescontos.Name = "gridDescontos";
+            this.gridDescontos.ReadOnly = true;
+            this.gridDescontos.RowHeadersVisible = false;
+            this.gridDescontos.RowTemplate.Height = 25;
+            this.gridDescontos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.gridDescontos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridDescontos.Size = new System.Drawing.Size(302, 111);
+            this.gridDescontos.TabIndex = 13;
+            // 
+            // colunaNomeServicoDesconto
+            // 
+            this.colunaNomeServicoDesconto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colunaNomeServicoDesconto.FillWeight = 68.02721F;
+            this.colunaNomeServicoDesconto.HeaderText = "Nome Serviço";
+            this.colunaNomeServicoDesconto.Name = "colunaNomeServicoDesconto";
+            this.colunaNomeServicoDesconto.ReadOnly = true;
+            // 
+            // colunaValorDesconto
+            // 
+            this.colunaValorDesconto.HeaderText = "Valor";
+            this.colunaValorDesconto.Name = "colunaValorDesconto";
+            this.colunaValorDesconto.ReadOnly = true;
+            this.colunaValorDesconto.Width = 80;
             // 
             // FinanceiroControleDeUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.caixaListaPromocoes);
+            this.Controls.Add(this.gridDescontos);
             this.Controls.Add(this.botaoFinalizar);
             this.Controls.Add(this.caixaTextoTotal);
             this.Controls.Add(this.caixaTextoDesconto);
@@ -261,8 +295,10 @@
             this.Controls.Add(this.gridAtendimentos);
             this.Name = "FinanceiroControleDeUsuario";
             this.Size = new System.Drawing.Size(849, 511);
+            this.Load += new System.EventHandler(this.FinanceiroControleDeUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridAtendimentos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridServicos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDescontos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,6 +322,8 @@
         private DataGridViewTextBoxColumn colunaCliente;
         private DataGridViewTextBoxColumn colunaIdServico;
         private DataGridViewTextBoxColumn colunaNomeServico;
-        private ListBox caixaListaPromocoes;
+        private DataGridView gridDescontos;
+        private DataGridViewTextBoxColumn colunaNomeServicoDesconto;
+        private DataGridViewTextBoxColumn colunaValorDesconto;
     }
 }

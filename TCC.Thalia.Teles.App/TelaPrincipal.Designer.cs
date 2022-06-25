@@ -32,7 +32,7 @@ partial class PrincipalTela
             this.painelLateral = new System.Windows.Forms.Panel();
             this.botaoFinanceiro = new System.Windows.Forms.Button();
             this.botaoClientes = new System.Windows.Forms.Button();
-            this.botaoPromocoes = new System.Windows.Forms.Button();
+            this.botaoDescontos = new System.Windows.Forms.Button();
             this.botaoServicos = new System.Windows.Forms.Button();
             this.botaoAtendimentos = new System.Windows.Forms.Button();
             this.painelLogo = new System.Windows.Forms.Panel();
@@ -54,7 +54,7 @@ partial class PrincipalTela
             this.painelLateral.BackColor = System.Drawing.Color.Blue;
             this.painelLateral.Controls.Add(this.botaoFinanceiro);
             this.painelLateral.Controls.Add(this.botaoClientes);
-            this.painelLateral.Controls.Add(this.botaoPromocoes);
+            this.painelLateral.Controls.Add(this.botaoDescontos);
             this.painelLateral.Controls.Add(this.botaoServicos);
             this.painelLateral.Controls.Add(this.botaoAtendimentos);
             this.painelLateral.Controls.Add(this.painelLogo);
@@ -96,21 +96,21 @@ partial class PrincipalTela
             this.botaoClientes.UseVisualStyleBackColor = false;
             this.botaoClientes.Click += new System.EventHandler(this.botaoClientes_Click);
             // 
-            // botaoPromocoes
+            // botaoDescontos
             // 
-            this.botaoPromocoes.BackColor = System.Drawing.Color.Blue;
-            this.botaoPromocoes.FlatAppearance.BorderSize = 0;
-            this.botaoPromocoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botaoPromocoes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.botaoPromocoes.ForeColor = System.Drawing.Color.White;
-            this.botaoPromocoes.Location = new System.Drawing.Point(0, 213);
-            this.botaoPromocoes.Name = "botaoPromocoes";
-            this.botaoPromocoes.Size = new System.Drawing.Size(142, 50);
-            this.botaoPromocoes.TabIndex = 3;
-            this.botaoPromocoes.Text = "Promoções";
-            this.botaoPromocoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.botaoPromocoes.UseVisualStyleBackColor = false;
-            this.botaoPromocoes.Click += new System.EventHandler(this.botaoPromocoes_Click);
+            this.botaoDescontos.BackColor = System.Drawing.Color.Blue;
+            this.botaoDescontos.FlatAppearance.BorderSize = 0;
+            this.botaoDescontos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botaoDescontos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.botaoDescontos.ForeColor = System.Drawing.Color.White;
+            this.botaoDescontos.Location = new System.Drawing.Point(0, 213);
+            this.botaoDescontos.Name = "botaoDescontos";
+            this.botaoDescontos.Size = new System.Drawing.Size(142, 50);
+            this.botaoDescontos.TabIndex = 3;
+            this.botaoDescontos.Text = "Descontos";
+            this.botaoDescontos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.botaoDescontos.UseVisualStyleBackColor = false;
+            this.botaoDescontos.Click += new System.EventHandler(this.botaoDescontos_Click);
             // 
             // botaoServicos
             // 
@@ -199,7 +199,7 @@ partial class PrincipalTela
             // botaoConcluirAtendimento
             // 
             this.botaoConcluirAtendimento.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.botaoConcluirAtendimento.Location = new System.Drawing.Point(708, 3);
+            this.botaoConcluirAtendimento.Location = new System.Drawing.Point(696, 4);
             this.botaoConcluirAtendimento.Name = "botaoConcluirAtendimento";
             this.botaoConcluirAtendimento.Size = new System.Drawing.Size(176, 34);
             this.botaoConcluirAtendimento.TabIndex = 8;
@@ -261,7 +261,7 @@ partial class PrincipalTela
     private Panel painelLogo;
     private Button botaoFinanceiro;
     private Button botaoClientes;
-    private Button botaoPromocoes;
+    private Button botaoDescontos;
     private Button botaoServicos;
     private Label label2;
     private Label label1;

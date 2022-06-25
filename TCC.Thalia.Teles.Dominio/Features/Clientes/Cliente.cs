@@ -14,14 +14,26 @@ public class Cliente
     {
         if (string.IsNullOrEmpty(Nome))
             return $"Nome é obrigatorio";
-        if (string.IsNullOrEmpty(Celular?.Replace("(", "").Replace(")", "").Replace("-", "").Trim()))
+
+        if (string.IsNullOrEmpty(Celular))
             return "Celular é obrigatorio";
+
+        var celularSemCaracteresApenasNumeros = Celular.Replace("(", "").Replace(")", "").Replace("-", "").Trim();
+
+        if(celularSemCaracteresApenasNumeros.Count() != 12)
+            return "Celular invalido";
+
         if (string.IsNullOrEmpty(Endereco))
             return "Endereço é obrigatorio";
         if (string.IsNullOrEmpty(Cpf))
             return "CPF é obrigatorio";
         if(!ValidadorCPF.Valida(Cpf))
             return "CPF não é valido";
+
+        Nome = Nome.Replace(";", ",");
+        Celular = Celular.Replace(";", ",");
+        Cpf = Cpf.Replace(";", ",");
+        Endereco = Endereco.Replace(";", ",");
 
         return "";
     }

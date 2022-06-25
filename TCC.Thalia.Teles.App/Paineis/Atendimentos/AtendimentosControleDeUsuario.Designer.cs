@@ -53,6 +53,7 @@
             this.gridAgenda.AllowUserToResizeRows = false;
             this.gridAgenda.BackgroundColor = System.Drawing.Color.White;
             this.gridAgenda.ColumnHeadersHeight = 35;
+            this.gridAgenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridAgenda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colunaId,
             this.colunaHorario,
@@ -64,6 +65,7 @@
             this.gridAgenda.Name = "gridAgenda";
             this.gridAgenda.ReadOnly = true;
             this.gridAgenda.RowHeadersVisible = false;
+            this.gridAgenda.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridAgenda.RowTemplate.Height = 25;
             this.gridAgenda.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.gridAgenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -113,9 +115,11 @@
             // 
             // calendario
             // 
+            this.calendario.BackColor = System.Drawing.Color.White;
             this.calendario.Location = new System.Drawing.Point(4, 41);
             this.calendario.MaxSelectionCount = 1;
             this.calendario.Name = "calendario";
+            this.calendario.ShowToday = false;
             this.calendario.TabIndex = 8;
             this.calendario.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendario_DateChanged);
             // 

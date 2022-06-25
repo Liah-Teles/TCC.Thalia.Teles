@@ -1,15 +1,19 @@
-﻿using TCC.Thalia.Teles.Dominio.Features.Clientes;
+﻿using TCC.Thalia.Teles.Dominio.Features.Atendimentos;
+using TCC.Thalia.Teles.Dominio.Features.Clientes;
 
 namespace TCC.Thalia.Teles.App.Paineis.Clientes
 {
     public partial class ClientesControleDeUsuario : UserControl
     {
         private ContratoClienteRepositorio _repositorioCsv;
-        public ClientesControleDeUsuario(ContratoClienteRepositorio repositorioCsv)
+        private ContratoAtendimentoRepositorio _contratoAtendimentoRepositorio;
+
+        public ClientesControleDeUsuario(ContratoClienteRepositorio repositorioCsv, ContratoAtendimentoRepositorio contratoAtendimentoRepositorio)
         {
             InitializeComponent();
 
             _repositorioCsv = repositorioCsv;
+            _contratoAtendimentoRepositorio = contratoAtendimentoRepositorio;
 
             AtualizaGrid();
         }
@@ -71,12 +75,14 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
 
                 var idCliente = (int)clienteLinha.Cells[0].Value;
                 var nomeCliente = clienteLinha.Cells[1].Value;
+                var cpfCliente = clienteLinha.Cells[3].Value;
 
-                var resultado = MessageBox.Show($"Deseja realmente remover o cliente: {nomeCliente}?", "Atênção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var resultado = MessageBox.Show($"Apagar cliente: {nomeCliente} irá remover todos os agendamentos do mesmo, continuar?", "Atênção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.Yes)
                 {
                     _repositorioCsv.Deletar(idCliente);
+                    _contratoAtendimentoRepositorio.DeletarPorCpfCliente($"{cpfCliente}");
 
                     AtualizaGrid();
                 }

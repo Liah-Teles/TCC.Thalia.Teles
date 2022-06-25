@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TCC.Thalia.Teles.Dominio.Features.Servicos
+﻿namespace TCC.Thalia.Teles.Dominio.Features.Servicos
 {
     public class Servico
     {
@@ -20,6 +14,8 @@ namespace TCC.Thalia.Teles.Dominio.Features.Servicos
                 return "Nome do serviço é obrigatorio";
             if (Valor <= 0)
                 return "Valor deve ser um numero positivo valido";
+
+            Nome = Nome.Replace(";", ",");
 
             return "";
         }

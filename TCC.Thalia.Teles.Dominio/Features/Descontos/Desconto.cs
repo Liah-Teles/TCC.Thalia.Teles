@@ -1,25 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TCC.Thalia.Teles.Dominio.Features.Promocoes
+﻿namespace TCC.Thalia.Teles.Dominio.Features.Descontos
 {
-    public class Promocao
+    public class Desconto
     {
         public int Id { get; set; }
-        public decimal Desconto { get; set; }
+        public decimal Valor { get; set; }
         public string NomeServico { get; set; }
+        public DateTime DataInicio { get; set; }
+        public DateTime DataFinal { get; set; }
 
-        public static string CabecalhoCsv => "Id;NomeServico;Desconto";
+        public static string CabecalhoCsv => "Id;Nome do servico;Desconto;Data inicial;Data final";
 
         public string ObterMensagemNaoValidado()
         {
             if (string.IsNullOrEmpty(NomeServico))
                 return $"Nome do serviço é obrigatorio";
-            if (Desconto <= 0)
+            if (DataInicio == default)
+                return $"Data de inicio é obrigatoria";
+            if (DataFinal == default)
+                return $"Data final é obrigatoria";
+            if (Valor <= 0)
                 return "Desconto deve ser um numero positivo valido";
+
+            NomeServico = NomeServico.Replace(";", ",");
 
             return "";
         }
@@ -37,7 +39,9 @@ namespace TCC.Thalia.Teles.Dominio.Features.Promocoes
 
                 Id = int.Parse(colunas[0]);
                 NomeServico = colunas[1];
-                Desconto = decimal.Parse(colunas[2]);
+                Valor = decimal.Parse(colunas[2]);
+                DataInicio = DateTime.Parse(colunas[3]);
+                DataFinal = DateTime.Parse(colunas[4]);
 
                 return true;
             }
@@ -49,7 +53,7 @@ namespace TCC.Thalia.Teles.Dominio.Features.Promocoes
 
         public string ParaLinhaCsv()
         {
-            return $"{Id};{NomeServico};{Desconto}";
+            return $"{Id};{NomeServico};{Valor};{DataInicio};{DataFinal}";
         }
     }
 }

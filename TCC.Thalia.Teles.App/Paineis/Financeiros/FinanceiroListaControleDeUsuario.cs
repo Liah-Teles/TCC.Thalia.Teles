@@ -56,7 +56,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
                 descontosGerais += valorDesconto;
                 totalGeral += valorTotal;
 
-                gridAtendimentos.Rows.Add(id, cliente, cpf, valorParcial, valorDesconto, valorTotal);
+                gridAtendimentos.Rows.Add(id, cliente, cpf, $"R$ {valorParcial}", $"R$ {valorDesconto}", $"R$ {valorTotal}");
             }
 
             caixaTextoTotalParcial.Text = $"R$ {valoresParciaisGerais}";
@@ -67,17 +67,16 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
         // ###############################################
         // Eventos dos componentes de listagem financeiro
         // ###############################################
-
-        private void caixaDataSelecionada_ValueChanged(object sender, EventArgs e)
+        private void FinanceiroListaControleDeUsuario_Load(object sender, EventArgs e)
         {
-            AtualizaGrid(caixaDataSelecionada.Value);
+            gridServicos.ClearSelection();
         }
 
-        private void gridFinanceiro_SelectionChanged(object sender, EventArgs e)
+        private void gridAtendimentos_SelectionChanged(object sender, EventArgs e)
         {
             gridServicos.Rows.Clear();
 
-            if(gridAtendimentos.SelectedRows.Count == 0)
+            if (gridAtendimentos.SelectedRows.Count == 0)
             {
                 return;
             }
@@ -94,17 +93,20 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
                 return;
             }
 
+            decimal totalServicos = 0M;
+            caixaTextoTotalServiços.Text = $"";
             foreach (var servico in financeiroSelecionado.Atendimento.Servicos)
             {
-                gridServicos.Rows.Add(servico.Nome, servico.Valor);
+                gridServicos.Rows.Add(servico.Nome, $"R$ {(servico.Valor + 0.00M)}");
+                totalServicos += servico.Valor;
             }
             gridServicos.ClearSelection();
-
+            caixaTextoTotalServiços.Text = $"R$ {totalServicos}";
         }
 
-        private void FinanceiroListaControleDeUsuario_Load(object sender, EventArgs e)
+        private void caixaDataSelecionada_ValueChanged(object sender, EventArgs e)
         {
-            gridServicos.ClearSelection();
+            AtualizaGrid(caixaDataSelecionada.Value);
         }
     }
 }

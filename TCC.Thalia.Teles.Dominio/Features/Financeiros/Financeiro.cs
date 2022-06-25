@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TCC.Thalia.Teles.Dominio.Features.Atendimentos;
-using TCC.Thalia.Teles.Dominio.Features.Promocoes;
+﻿using TCC.Thalia.Teles.Dominio.Features.Atendimentos;
+using TCC.Thalia.Teles.Dominio.Features.Descontos;
 
 namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
 {
@@ -15,10 +10,10 @@ namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
         public decimal DescontoAplicado { get; set; }
         public decimal Total { get; set; }
         public Atendimento Atendimento { get; set; }
-        public List<Promocao> Promocoes { get; set; } = new List<Promocao>();
+        public List<Desconto> Descontos { get; set; } = new List<Desconto>();
 
 
-        public static string CabecalhoCsv => "Id;ValorParcial;DescontoAplicado;Total;Atendimento;Promocoes";
+        public static string CabecalhoCsv => "Id;ValorParcial;DescontoAplicado;Total;Atendimento;Descontos";
 
 
         public string ObterMensagemNaoValidado()
@@ -29,7 +24,7 @@ namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
                 return "Valor total é obrigatorio";
             if (Atendimento == null)
                 return "Atendimento é obrigatorio";
-            if (Promocoes.Count == 0)
+            if (Descontos.Count == 0)
                 return "Valor total é obrigatorio";
 
             return "";
@@ -56,21 +51,21 @@ namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
                 if (!Atendimento.CriarPorLinhaCsv(atendimentoTexto))
                     return false;
 
-                if (Promocoes == null)
-                    Promocoes = new List<Promocao>();
+                if (Descontos == null)
+                    Descontos = new List<Desconto>();
 
 
                 if(colunas.Length == 6)
                 {
                     var promocoesTexto = $"{colunas[5]}".Split('|', StringSplitOptions.RemoveEmptyEntries);
-                    foreach (var promocaoTexto in promocoesTexto)
+                    foreach (var descontoTexto in promocoesTexto)
                     {
-                        var promocao = new Promocao();
+                        var desconto = new Desconto();
 
-                        if (!promocao.CriarPorLinhaCsv(promocaoTexto.Replace("#", ";")))
+                        if (!desconto.CriarPorLinhaCsv(descontoTexto.Replace("#", ";")))
                             return false;
 
-                        Promocoes.Add(promocao);
+                        Descontos.Add(desconto);
                     }
                 }
 
@@ -90,9 +85,9 @@ namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
             var atendimentoString = Atendimento.ParaLinhaCsv().Replace(";", "#");
 
             var promocoesString = "";
-            foreach (var promocao in Promocoes)
+            foreach (var desconto in Descontos)
             {
-                promocoesString += $"{promocao.ParaLinhaCsv().Replace(";", "#")}|";
+                promocoesString += $"{desconto.ParaLinhaCsv().Replace(";", "#")}|";
             }
 
             return $"{Id};{ValorParcial};{DescontoAplicado};{Total};{atendimentoString};{promocoesString}";
@@ -107,9 +102,9 @@ namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
             }
 
             DescontoAplicado = 0;
-            foreach (var promocao in Promocoes)
+            foreach (var desconto in Descontos)
             {
-                DescontoAplicado += promocao.Desconto;
+                DescontoAplicado += desconto.Valor;
             }
 
             Total = ValorParcial - DescontoAplicado;

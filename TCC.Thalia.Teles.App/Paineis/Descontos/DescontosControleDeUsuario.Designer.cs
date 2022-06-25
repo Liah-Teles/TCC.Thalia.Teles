@@ -1,6 +1,6 @@
-﻿namespace TCC.Thalia.Teles.App.Paineis.Promocoes
+﻿namespace TCC.Thalia.Teles.App.Paineis.Descontos
 {
-    partial class PromocoesControleDeUsuario
+    partial class DescontosControleDeUsuario
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -31,19 +31,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.botaoRemover = new System.Windows.Forms.Button();
             this.botaoAdicionar = new System.Windows.Forms.Button();
-            this.gridPromocoes = new System.Windows.Forms.DataGridView();
+            this.gridDescontos = new System.Windows.Forms.DataGridView();
             this.colunaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colunaServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colunaDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colunaValorDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colunaDataInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colunaDataFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPromocoes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDescontos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.botaoRemover);
             this.panel1.Controls.Add(this.botaoAdicionar);
-            this.panel1.Controls.Add(this.gridPromocoes);
+            this.panel1.Controls.Add(this.gridDescontos);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -71,36 +73,41 @@
             this.botaoAdicionar.UseVisualStyleBackColor = true;
             this.botaoAdicionar.Click += new System.EventHandler(this.botaoAdicionar_Click);
             // 
-            // gridPromocoes
+            // gridDescontos
             // 
-            this.gridPromocoes.AllowUserToAddRows = false;
-            this.gridPromocoes.AllowUserToDeleteRows = false;
-            this.gridPromocoes.AllowUserToResizeColumns = false;
-            this.gridPromocoes.AllowUserToResizeRows = false;
-            this.gridPromocoes.BackgroundColor = System.Drawing.Color.White;
-            this.gridPromocoes.ColumnHeadersHeight = 35;
-            this.gridPromocoes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridDescontos.AllowUserToAddRows = false;
+            this.gridDescontos.AllowUserToDeleteRows = false;
+            this.gridDescontos.AllowUserToResizeColumns = false;
+            this.gridDescontos.AllowUserToResizeRows = false;
+            this.gridDescontos.BackgroundColor = System.Drawing.Color.White;
+            this.gridDescontos.ColumnHeadersHeight = 35;
+            this.gridDescontos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridDescontos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colunaId,
             this.colunaServico,
-            this.colunaDesconto});
-            this.gridPromocoes.GridColor = System.Drawing.Color.White;
-            this.gridPromocoes.Location = new System.Drawing.Point(13, 56);
-            this.gridPromocoes.MultiSelect = false;
-            this.gridPromocoes.Name = "gridPromocoes";
-            this.gridPromocoes.ReadOnly = true;
-            this.gridPromocoes.RowHeadersVisible = false;
-            this.gridPromocoes.RowTemplate.Height = 25;
-            this.gridPromocoes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.gridPromocoes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPromocoes.Size = new System.Drawing.Size(870, 442);
-            this.gridPromocoes.TabIndex = 8;
-            this.gridPromocoes.SelectionChanged += new System.EventHandler(this.gridPromocoes_SelectionChanged);
+            this.colunaValorDesconto,
+            this.colunaDataInicio,
+            this.colunaDataFinal});
+            this.gridDescontos.GridColor = System.Drawing.Color.White;
+            this.gridDescontos.Location = new System.Drawing.Point(13, 56);
+            this.gridDescontos.MultiSelect = false;
+            this.gridDescontos.Name = "gridDescontos";
+            this.gridDescontos.ReadOnly = true;
+            this.gridDescontos.RowHeadersVisible = false;
+            this.gridDescontos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridDescontos.RowTemplate.Height = 25;
+            this.gridDescontos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.gridDescontos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridDescontos.Size = new System.Drawing.Size(870, 442);
+            this.gridDescontos.TabIndex = 8;
+            this.gridDescontos.SelectionChanged += new System.EventHandler(this.gridDescontos_SelectionChanged);
             // 
             // colunaId
             // 
             this.colunaId.HeaderText = "Id";
             this.colunaId.Name = "colunaId";
             this.colunaId.ReadOnly = true;
+            this.colunaId.Width = 50;
             // 
             // colunaServico
             // 
@@ -109,23 +116,35 @@
             this.colunaServico.Name = "colunaServico";
             this.colunaServico.ReadOnly = true;
             // 
-            // colunaDesconto
+            // colunaValorDesconto
             // 
-            this.colunaDesconto.HeaderText = "Desconto";
-            this.colunaDesconto.Name = "colunaDesconto";
-            this.colunaDesconto.ReadOnly = true;
+            this.colunaValorDesconto.HeaderText = "Valor";
+            this.colunaValorDesconto.Name = "colunaValorDesconto";
+            this.colunaValorDesconto.ReadOnly = true;
             // 
-            // PromocoesControleDeUsuario
+            // colunaDataInicio
+            // 
+            this.colunaDataInicio.HeaderText = "Data inicio";
+            this.colunaDataInicio.Name = "colunaDataInicio";
+            this.colunaDataInicio.ReadOnly = true;
+            // 
+            // colunaDataFinal
+            // 
+            this.colunaDataFinal.HeaderText = "Data final";
+            this.colunaDataFinal.Name = "colunaDataFinal";
+            this.colunaDataFinal.ReadOnly = true;
+            // 
+            // DescontosControleDeUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel1);
-            this.Name = "PromocoesControleDeUsuario";
+            this.Name = "DescontosControleDeUsuario";
             this.Size = new System.Drawing.Size(896, 554);
-            this.Load += new System.EventHandler(this.PromocoesControleDeUsuario_Load);
+            this.Load += new System.EventHandler(this.DescontosControleDeUsuario_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridPromocoes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDescontos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -133,11 +152,14 @@
         #endregion
 
         private Panel panel1;
-        private DataGridView gridPromocoes;
+        private DataGridView gridDescontos;
         private Button botaoRemover;
         private Button botaoAdicionar;
+        private DataGridViewTextBoxColumn colunaDesconto;
         private DataGridViewTextBoxColumn colunaId;
         private DataGridViewTextBoxColumn colunaServico;
-        private DataGridViewTextBoxColumn colunaDesconto;
+        private DataGridViewTextBoxColumn colunaValorDesconto;
+        private DataGridViewTextBoxColumn colunaDataInicio;
+        private DataGridViewTextBoxColumn colunaDataFinal;
     }
 }

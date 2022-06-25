@@ -1,13 +1,13 @@
-﻿using TCC.Thalia.Teles.Dominio.Features.Promocoes;
+﻿using TCC.Thalia.Teles.Dominio.Features.Descontos;
 using TCC.Thalia.Teles.Dominio.Features.Servicos;
 
-namespace TCC.Thalia.Teles.App.Paineis.Promocoes
+namespace TCC.Thalia.Teles.App.Paineis.Descontos
 {
-    public partial class PromocoesControleDeUsuario : UserControl
+    public partial class DescontosControleDeUsuario : UserControl
     {
-        private ContratoPromocaoRepositorio _repositorioCsv;
+        private ContratoDescontoRepositorio _repositorioCsv;
         private ContratoServicoRepositorio _repositorioCsvServico;
-        public PromocoesControleDeUsuario(ContratoPromocaoRepositorio repositorioCsv, ContratoServicoRepositorio repositorioCsvServico)
+        public DescontosControleDeUsuario(ContratoDescontoRepositorio repositorioCsv, ContratoServicoRepositorio repositorioCsvServico)
         {
             InitializeComponent();
             _repositorioCsv = repositorioCsv;
@@ -24,7 +24,21 @@ namespace TCC.Thalia.Teles.App.Paineis.Promocoes
         {
             try
             {
-                AdicionarListaNoGrid(_repositorioCsv.ObterTodos());
+                var todosDescontos = _repositorioCsv.ObterTodos();
+
+                List<Desconto> descontosValidos = new List<Desconto>();
+
+                foreach (var desconto in todosDescontos)
+                {
+                    if(desconto.DataFinal < DateTime.Now)
+                    {
+                        _repositorioCsv.Deletar(desconto.Id);
+                    }
+
+                    descontosValidos.Add(desconto);
+                }
+
+                AdicionarListaNoGrid(descontosValidos);
             }
             catch (Exception ex)
             {
@@ -32,12 +46,12 @@ namespace TCC.Thalia.Teles.App.Paineis.Promocoes
             }
         }
 
-        private void AdicionarListaNoGrid(List<Promocao> promocoes)
+        private void AdicionarListaNoGrid(List<Desconto> promocoes)
         {
-            gridPromocoes.Rows.Clear();
-            foreach (var  promocao in promocoes)
+            gridDescontos.Rows.Clear();
+            foreach (var  desconto in promocoes)
             {
-                gridPromocoes.Rows.Add(promocao.Id, promocao.NomeServico, promocao.Desconto);
+                gridDescontos.Rows.Add(desconto.Id, desconto.NomeServico, $"R$ {desconto.Valor}", desconto.DataInicio.ToString("dd/MM/yyyyy"), desconto.DataFinal.ToString("dd/MM/yyyyy"));
             }
         }
 
@@ -53,17 +67,17 @@ namespace TCC.Thalia.Teles.App.Paineis.Promocoes
 
                 if (servicos == null || servicos.Count == 0)
                 {
-                    MessageBox.Show("Adicione serviços antes de criar uma promoção", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Adicione serviços antes de criar uma desconto", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                var criarPromocaoTela = new AdicionarPromocoesTela(servicos);
+                var criarDescontoTela = new AdicionarDescontoTela(servicos);
 
-                var resultadoDialogo = criarPromocaoTela.ShowDialog();
+                var resultadoDialogo = criarDescontoTela.ShowDialog();
 
                 if (resultadoDialogo == DialogResult.Yes)
                 {
-                    _repositorioCsv.Salvar(criarPromocaoTela.ObterPromocao());
+                    _repositorioCsv.Salvar(criarDescontoTela.ObterDesconto());
                     MessageBox.Show("Inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -77,14 +91,14 @@ namespace TCC.Thalia.Teles.App.Paineis.Promocoes
 
         private void botaoRemover_Click(object sender, EventArgs e)
         {
-            if (gridPromocoes.SelectedRows.Count > 0)
+            if (gridDescontos.SelectedRows.Count > 0)
             {
-                var linha = gridPromocoes.SelectedRows[0];
+                var linha = gridDescontos.SelectedRows[0];
 
                 var id = (int)linha.Cells[0].Value;
                 var nome = linha.Cells[1].Value;
 
-                var resultado = MessageBox.Show($"Deseja realmente remover a promoção: {nome}?", "Atênção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var resultado = MessageBox.Show($"Deseja realmente remover a desconto: {nome}?", "Atênção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.Yes)
                 {
@@ -95,14 +109,14 @@ namespace TCC.Thalia.Teles.App.Paineis.Promocoes
             }
         }
 
-        private void gridPromocoes_SelectionChanged(object sender, EventArgs e)
+        private void gridDescontos_SelectionChanged(object sender, EventArgs e)
         {
             botaoRemover.Enabled = true;
         }
 
-        private void PromocoesControleDeUsuario_Load(object sender, EventArgs e)
+        private void DescontosControleDeUsuario_Load(object sender, EventArgs e)
         {
-            gridPromocoes.ClearSelection();
+            gridDescontos.ClearSelection();
             botaoRemover.Enabled = false;
         }
     }

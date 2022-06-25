@@ -102,6 +102,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Atendimentos
             }
 
             _repositorioCsv.Deletar(_atendimentoSelecionado.Id, _atendimentoSelecionado.Data);
+            AtualizaGrid(calendario.SelectionStart);
             MessageBox.Show("Removido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -118,14 +119,14 @@ namespace TCC.Thalia.Teles.App.Paineis.Atendimentos
                 var servicos = _contratoServicoRepositorio.ObterTodos();
                 var clientes = _contratoClienteRepositorio.ObterTodos();
                 
-                var adicionarTela = new AdicionarAtendimentoTela(servicos, clientes, _atendimentoSelecionado);
+                var editarTela = new AdicionarAtendimentoTela(servicos, clientes, _atendimentoSelecionado);
 
-                var resultadoDialogo = adicionarTela.ShowDialog();
+                var resultadoDialogo = editarTela.ShowDialog();
 
                 if (resultadoDialogo == DialogResult.Yes)
                 {
-                    _repositorioCsv.Atualizar(adicionarTela.ObterAtendimento());
-                    MessageBox.Show("Inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _repositorioCsv.Atualizar(editarTela.ObterAtendimento());
+                    MessageBox.Show("Atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 AtualizaGrid(_atendimentoSelecionado.Data);

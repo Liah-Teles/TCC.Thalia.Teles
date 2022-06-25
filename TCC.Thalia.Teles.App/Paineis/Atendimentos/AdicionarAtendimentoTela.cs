@@ -40,10 +40,34 @@ namespace TCC.Thalia.Teles.App.Paineis.Atendimentos
             return $"{clienteNome} | cpf: {clienteCpf}";
         }
 
+        private bool VerificaSeTemErros()
+        {
+            if (_clienteSelecionado == null)
+            {
+                MessageBox.Show("Selecione um cliente para o atendimento", "Atênçao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            if (caixaDateHora.Value < DateTime.Now)
+            {
+                MessageBox.Show("Impossivel salvar atendimento com data inferior a hoje", "Atênçao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+
+            if (caixaDateHora.Value > DateTime.Now.AddMonths(2))
+            {
+                MessageBox.Show("Só podem ser realizados agendamentos para no maximo em dois meses.", "Atênçao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+
+            return false;
+        }
+
         private void PopularCasoSejaEdicao()
         {
-            if(_atendimento != null)
+            if (_atendimento != null)
             {
+                this.Text = "Editar atendimento";
+
                 var clienteEmTexto = RetornTextoParaListaCliente(_atendimento.Cliente, _atendimento.ClienteCpf);
 
                 caixaListaClientes.Text = clienteEmTexto;
@@ -55,7 +79,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Atendimentos
                 {
                     var nomeServicoLinha = $"{row.Cells[0].Value}";
 
-                    if(_atendimento.Servicos.Any(servico => servico.Nome == nomeServicoLinha))
+                    if (_atendimento.Servicos.Any(servico => servico.Nome == nomeServicoLinha))
                     {
                         row.Selected = true;
                     }
@@ -73,7 +97,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Atendimentos
 
             foreach (var cliente in clientesOrdenadosPorNome)
             {
-                caixaListaClientes.Items.Add($"{cliente.Nome} | cpf: {cliente.Cpf}");
+                caixaListaClientes.Items.Add(RetornTextoParaListaCliente(cliente.Nome, cliente.Cpf));
             }
         }
 
@@ -82,7 +106,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Atendimentos
             var servicoOrdenadosPorNome = servicos.OrderBy(servico => servico.Nome);
             foreach (var servico in servicoOrdenadosPorNome)
             {
-                gridServicos.Rows.Add(servico.Nome, servico.Valor);
+                gridServicos.Rows.Add(servico.Nome, $"R$ {servico.Valor}");
             }
         }
 
@@ -96,7 +120,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Atendimentos
             if (string.IsNullOrEmpty(clienteEmTextSelecionado))
                 return;
 
-            _clienteSelecionado = _listaClientes.First(cliente => clienteEmTextSelecionado == $"{cliente.Nome} | cpf: {cliente.Cpf}");
+            _clienteSelecionado = _listaClientes.First(cliente => clienteEmTextSelecionado == RetornTextoParaListaCliente(cliente.Nome, cliente.Cpf));
         }
 
         private void gridServicos_SelectionChanged(object sender, EventArgs e)
@@ -119,20 +143,12 @@ namespace TCC.Thalia.Teles.App.Paineis.Atendimentos
 
         private void botaoSalvar_Click(object sender, EventArgs e)
         {
-            if (_clienteSelecionado == null)
-            {
-                MessageBox.Show("Selecione um cliente para o atendimento", "Atênçao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if(VerificaSeTemErros())
                 return;
-            }
-            if (caixaDateHora.Value < DateTime.Now)
-            {
-                MessageBox.Show("Impossivel salvar atendimento com data inferior a hoje", "Atênçao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             int id = 0;
 
-            if(_atendimento != null)
+            if (_atendimento != null)
             {
                 id = _atendimento.Id;
             }

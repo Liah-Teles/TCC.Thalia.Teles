@@ -1,17 +1,17 @@
 using TCC.Thalia.Teles.App.Paineis.Atendimentos;
 using TCC.Thalia.Teles.App.Paineis.Clientes;
 using TCC.Thalia.Teles.App.Paineis.Financeiros;
-using TCC.Thalia.Teles.App.Paineis.Promocoes;
+using TCC.Thalia.Teles.App.Paineis.Descontos;
 using TCC.Thalia.Teles.App.Paineis.Servicos;
 using TCC.Thalia.Teles.Dominio.Features.Atendimentos;
 using TCC.Thalia.Teles.Dominio.Features.Clientes;
 using TCC.Thalia.Teles.Dominio.Features.Financeiros;
-using TCC.Thalia.Teles.Dominio.Features.Promocoes;
+using TCC.Thalia.Teles.Dominio.Features.Descontos;
 using TCC.Thalia.Teles.Dominio.Features.Servicos;
 using TCC.Thalia.Teles.Infra.Dados.Features.Atendimentos;
 using TCC.Thalia.Teles.Infra.Dados.Features.Clientes;
 using TCC.Thalia.Teles.Infra.Dados.Features.Financeiros;
-using TCC.Thalia.Teles.Infra.Dados.Features.Promocoes;
+using TCC.Thalia.Teles.Infra.Dados.Features.Descontos;
 using TCC.Thalia.Teles.Infra.Dados.Features.Servicos;
 
 namespace TCC.Thalia.Teles.App;
@@ -20,27 +20,31 @@ public partial class PrincipalTela : Form
 {
     private ContratoServicoRepositorio _contratoServicoRepositorio;
     private ContratoClienteRepositorio _contratoClienteRepositorio;
-    private ContratoPromocaoRepositorio _contratoPromocaoRepositorio;
+    private ContratoDescontoRepositorio _contratoDescontoRepositorio;
     private ContratoAtendimentoRepositorio _contratoAtendimentoRepositorio;
     private ContratoFinanceiroRepositorio _contratoFinanceiroRepositorio;
 
     private UserControl _controleDeUsuarioSelecionado;
     private Button _botaoSelecionado;
-    private string _diretorioAtendimento = $"{Directory.GetCurrentDirectory()}\\Data\\Atendimentos";
-
-    private string _localizacaoCsv = $"{Directory.GetCurrentDirectory()}\\Data";
+    private string _diretorioMeusDocumentos;
+    private string _diretorioAtendimento;
+    private string _localizacaoCsv;
 
 
 
     public PrincipalTela()
     {
+        _diretorioMeusDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); ;
+        _diretorioAtendimento = $"{_diretorioMeusDocumentos}\\Oasis Estetica\\Data\\Atendimentos";
+        _localizacaoCsv = $"{_diretorioMeusDocumentos}\\Oasis Estetica\\Data";
+
         InitializeComponent();
 
         CriarEManipularDiretorio();
 
         _contratoServicoRepositorio = new ServicoCSVRepositorio(_localizacaoCsv);
         _contratoClienteRepositorio = new ClienteCSVRepositorio(_localizacaoCsv);
-        _contratoPromocaoRepositorio = new PromocaoCSVRepositorio(_localizacaoCsv);
+        _contratoDescontoRepositorio = new DescontoCSVRepositorio(_localizacaoCsv);
         _contratoAtendimentoRepositorio = new AtendimentoCSVRepositorio(_diretorioAtendimento);
         _contratoFinanceiroRepositorio = new FinanceiroCSVRepositorio(_localizacaoCsv);
 
@@ -63,7 +67,7 @@ public partial class PrincipalTela : Form
 
     void MudarBotao(Button botaoClicado)
     {
-        if(botaoConcluirAtendimento == botaoClicado)
+        if (botaoConcluirAtendimento == botaoClicado)
         {
             return;
         }
@@ -107,15 +111,15 @@ public partial class PrincipalTela : Form
         AoClicarEmUmBotao(new ServicosControleDeUsuario(_contratoServicoRepositorio), botaoServicos);
     }
 
-    private void botaoPromocoes_Click(object sender, EventArgs e)
+    private void botaoDescontos_Click(object sender, EventArgs e)
     {
-        var promocoesPainel = new PromocoesControleDeUsuario(_contratoPromocaoRepositorio, _contratoServicoRepositorio);
-        AoClicarEmUmBotao(promocoesPainel, botaoPromocoes);
+        var promocoesPainel = new DescontosControleDeUsuario(_contratoDescontoRepositorio, _contratoServicoRepositorio);
+        AoClicarEmUmBotao(promocoesPainel, botaoDescontos);
     }
 
     private void botaoClientes_Click(object sender, EventArgs e)
     {
-        var clientePainel = new ClientesControleDeUsuario(_contratoClienteRepositorio);
+        var clientePainel = new ClientesControleDeUsuario(_contratoClienteRepositorio, _contratoAtendimentoRepositorio);
         AoClicarEmUmBotao(clientePainel, botaoClientes);
     }
 
@@ -124,7 +128,7 @@ public partial class PrincipalTela : Form
         botaoConcluirAtendimento.Visible = true;
 
         var financeiroLista = new FinanceiroListaControleDeUsuario(_contratoFinanceiroRepositorio);
-        
+
         AoClicarEmUmBotao(financeiroLista, botaoFinanceiro);
     }
 
@@ -132,7 +136,7 @@ public partial class PrincipalTela : Form
     private void botaoConcluirAtendimento_Click(object sender, EventArgs e)
     {
         var atendimentos = _contratoAtendimentoRepositorio.ObterTodos(DateTime.Now).Where(atendimento => atendimento.Data.Day == DateTime.Now.Day).ToList();
-        var promocoes = _contratoPromocaoRepositorio.ObterTodos();
+        var promocoes = _contratoDescontoRepositorio.ObterTodos();
 
         var financeiroPainel = new FinanceiroControleDeUsuario(_contratoFinanceiroRepositorio, _contratoAtendimentoRepositorio, atendimentos, promocoes);
 

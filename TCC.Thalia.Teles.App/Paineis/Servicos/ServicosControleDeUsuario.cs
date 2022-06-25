@@ -33,7 +33,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
             _servicos = servicos;
             foreach (var servico in servicos)
             {
-                gridServicos.Rows.Add(servico.Id, servico.Nome, servico.Valor);
+                gridServicos.Rows.Add(servico.Id, servico.Nome, $"R$ {servico.Valor}");
             }
         }
 

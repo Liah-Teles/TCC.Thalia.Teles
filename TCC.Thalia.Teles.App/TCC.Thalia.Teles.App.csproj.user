@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_LastSelectedProfileId>C:\TCC\TCC.Thalia.Teles\TCC.Thalia.Teles.App\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+    <_LastSelectedProfileId>C:\TCC Thalia\TCC.Thalia.Teles\TCC.Thalia.Teles.App\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="Paineis\Atendimentos\AdicionarAtendimentoTela.cs">
@@ -19,7 +19,7 @@
     <Compile Update="Paineis\Financeiros\FinanceiroListaControleDeUsuario.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Paineis\Promocoes\PromocoesControleDeUsuario.cs">
+    <Compile Update="Paineis\Descontos\DescontosControleDeUsuario.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Paineis\Servicos\ServicosControleDeUsuario.cs">

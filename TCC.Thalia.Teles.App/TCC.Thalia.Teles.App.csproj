@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Paineis\Promocoes\AdicionarPromocoesTela.cs">
+      <Compile Update="Paineis\Descontos\AdicionarDescontoTela.cs">
         <SubType>Form</SubType>
       </Compile>
       <Compile Update="Paineis\Servicos\AdicionarServicoTela.cs">
