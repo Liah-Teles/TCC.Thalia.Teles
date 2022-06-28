@@ -4,12 +4,12 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Servicos
 {
     public class ServicoCSVRepositorio : ContratoServicoRepositorio
     {
-        private object _aguardarExecucao = new object();
-        private string _localizacaoCsv;
+        private string _localizacaoArquivoCsv;
 
-        public ServicoCSVRepositorio(string localizacaoCsv)
+        public ServicoCSVRepositorio(string localizacaoArquivoCsv)
         {
-            _localizacaoCsv = $"{localizacaoCsv}\\Servicos.csv";
+            Directory.CreateDirectory(localizacaoArquivoCsv);
+            _localizacaoArquivoCsv = $"{localizacaoArquivoCsv}\\Servicos.csv";
         }
 
         public void Atualizar(Servico servico)
@@ -53,39 +53,36 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Servicos
 
         public List<Servico> ObterTodos()
         {
-            lock (_aguardarExecucao)
+            var listaParaRetornar = new List<Servico>();
+            try
             {
-                var listaParaRetornar = new List<Servico>();
-                try
+                var existeArquiv = File.Exists(_localizacaoArquivoCsv);
+
+                if (!existeArquiv)
                 {
-                    var existeArquiv = File.Exists(_localizacaoCsv);
-
-                    if (!existeArquiv)
-                    {
-                        var arquivo = File.Create(_localizacaoCsv);
-                        arquivo.Close();
-                        return listaParaRetornar;
-                    }
-
-                    var linhasCsv = File.ReadAllLines(_localizacaoCsv);
-
-                    for (int i = 1; i < linhasCsv.Length; i++)
-                    {
-                        var servico = new Servico();
-
-                        if (servico.CriarPorLinhaCsv(linhasCsv[i]))
-                        {
-                            listaParaRetornar.Add(servico);
-                        }
-                    }
-
-
-                    return listaParaRetornar.OrderBy(service => service.Id).ToList();
+                    var arquivo = File.Create(_localizacaoArquivoCsv);
+                    arquivo.Close();
+                    return listaParaRetornar;
                 }
-                catch (Exception ex)
+
+                var linhasCsv = File.ReadAllLines(_localizacaoArquivoCsv);
+
+                for (int i = 1; i < linhasCsv.Length; i++)
                 {
-                    throw new Exception("Erro inesperado ao obter servicos", ex);
+                    var servico = new Servico();
+
+                    if (servico.CriarPorLinhaCsv(linhasCsv[i]))
+                    {
+                        listaParaRetornar.Add(servico);
+                    }
                 }
+
+
+                return listaParaRetornar.OrderBy(service => service.Id).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro inesperado ao obter servicos", ex);
             }
         }
 
@@ -117,26 +114,23 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Servicos
         {
             try
             {
-                lock (_aguardarExecucao)
+                var existeArquiv = File.Exists(_localizacaoArquivoCsv);
+
+                if (!existeArquiv)
                 {
-                    var existeArquiv = File.Exists(_localizacaoCsv);
-
-                    if (!existeArquiv)
-                    {
-                        var arquivo = File.Create(_localizacaoCsv);
-                        arquivo.Close();
-                    }
-
-                    var linhasCsv = new List<string>();
-                    linhasCsv.Add(Servico.CabecalhoCsv);
-
-                    foreach (var servico in servicos)
-                    {
-                        linhasCsv.Add(servico.ParaLinhaCsv());
-                    }
-
-                    File.WriteAllLines(_localizacaoCsv, linhasCsv);
+                    var arquivo = File.Create(_localizacaoArquivoCsv);
+                    arquivo.Close();
                 }
+
+                var linhasCsv = new List<string>();
+                linhasCsv.Add(Servico.CabecalhoCsv);
+
+                foreach (var servico in servicos)
+                {
+                    linhasCsv.Add(servico.ParaLinhaCsv());
+                }
+
+                File.WriteAllLines(_localizacaoArquivoCsv, linhasCsv);
             }
             catch (Exception ex)
             {

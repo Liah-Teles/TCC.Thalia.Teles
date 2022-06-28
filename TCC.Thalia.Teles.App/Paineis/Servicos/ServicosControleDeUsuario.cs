@@ -4,13 +4,13 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
 {
     public partial class ServicosControleDeUsuario : UserControl
     {
-        private ContratoServicoRepositorio _repositorioCsv;
+        private ContratoServicoRepositorio _repositorioArquivoServicos;
         private List<Servico> _servicos;
 
-        public ServicosControleDeUsuario(ContratoServicoRepositorio repositorioCsv)
+        public ServicosControleDeUsuario(ContratoServicoRepositorio repositorioArquivoCsv)
         {
             InitializeComponent();
-            _repositorioCsv = repositorioCsv;
+            _repositorioArquivoServicos = repositorioArquivoCsv;
 
             AtualizaGrid();
         }
@@ -19,7 +19,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
         {
             try
             {
-                AdicionarListaNoGrid(_repositorioCsv.ObterTodos());
+                var listaServicos = _repositorioArquivoServicos.ObterTodos();
+                AdicionarListaNoGrid(listaServicos);
             }
             catch (Exception ex)
             {
@@ -46,7 +47,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
 
                 if (adicionarServicoTela.ShowDialog() == DialogResult.Yes)
                 {
-                    _repositorioCsv.Salvar(adicionarServicoTela.ObterServico());
+                    var servico = adicionarServicoTela.ObterServico();
+                    _repositorioArquivoServicos.Salvar(servico);
                     MessageBox.Show("Inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AtualizaGrid();
                 }
@@ -70,7 +72,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
 
                 if (resultado == DialogResult.Yes)
                 {
-                    _repositorioCsv.Deletar(id);
+                    _repositorioArquivoServicos.Deletar(id);
 
                     AtualizaGrid();
                 }
@@ -97,7 +99,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
 
                     if (adicionarServicoTela.ShowDialog() == DialogResult.Yes)
                     {
-                        _repositorioCsv.Atualizar(adicionarServicoTela.ObterServico());
+                        var servicoEditado = adicionarServicoTela.ObterServico();
+                        _repositorioArquivoServicos.Atualizar(servicoEditado);
                         MessageBox.Show("Atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         AtualizaGrid();
                     }

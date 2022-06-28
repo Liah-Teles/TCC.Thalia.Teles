@@ -12,13 +12,13 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
         private List<Desconto> _promocoes;
         private List<Desconto> _promocoesDentroDaLista = new List<Desconto>();
 
-        public FinanceiroControleDeUsuario(ContratoFinanceiroRepositorio contratoFinanceiroRepositorio,
-                                          ContratoAgendamentoRepositorio contratoAgendamentoRepositorio,
+        public FinanceiroControleDeUsuario(ContratoFinanceiroRepositorio repositorioArquivoCsvFinanceiro,
+                                          ContratoAgendamentoRepositorio repositorioArquivoCsvAgendamento,
                                           List<Agendamento> agendamentos, List<Desconto> promocoes)
         {
             InitializeComponent();
-            _contratoFinanceiroRepositorio = contratoFinanceiroRepositorio;
-            _contratoAgendamentoRepositorio = contratoAgendamentoRepositorio;
+            _contratoFinanceiroRepositorio = repositorioArquivoCsvFinanceiro;
+            _contratoAgendamentoRepositorio = repositorioArquivoCsvAgendamento;
             _agendamentos = agendamentos;
             _promocoes = promocoes;
 
@@ -157,7 +157,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
 
                             MessageBox.Show("Finalizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            AdicionarListaNoGrid(_contratoAgendamentoRepositorio.ObterTodos(financeiro.Agendamento.Data));
+                            var listaAgendamentos = _contratoAgendamentoRepositorio.ObterTodos(financeiro.Agendamento.Data);
+                            AdicionarListaNoGrid(listaAgendamentos);
                         }
                     }
                 }

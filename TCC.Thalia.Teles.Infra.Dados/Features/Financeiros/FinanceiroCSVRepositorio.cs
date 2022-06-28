@@ -4,12 +4,12 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Financeiros
 {
     public class FinanceiroCSVRepositorio : ContratoFinanceiroRepositorio
     {
-        private object _aguardarExecucao = new object();
-        private string _localizacaoCsv;
+        private string _localizacaoArquivoCsv;
 
-        public FinanceiroCSVRepositorio(string localizacaoCsv)
+        public FinanceiroCSVRepositorio(string localizacaoArquivoCsv)
         {
-            _localizacaoCsv = $"{localizacaoCsv}\\Financeiro.csv";
+            Directory.CreateDirectory(localizacaoArquivoCsv);
+            _localizacaoArquivoCsv = $"{localizacaoArquivoCsv}\\Financeiro.csv";
         }
 
         public void Atualizar(Financeiro financeiro)
@@ -56,39 +56,36 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Financeiros
 
         public List<Financeiro> ObterTodos()
         {
-            lock (_aguardarExecucao)
+            var listaParaRetornar = new List<Financeiro>();
+            try
             {
-                var listaParaRetornar = new List<Financeiro>();
-                try
+                var existeArquivo = File.Exists(_localizacaoArquivoCsv);
+
+                if (!existeArquivo)
                 {
-                    var existeArquivo = File.Exists(_localizacaoCsv);
-
-                    if (!existeArquivo)
-                    {
-                        var arquivo = File.Create(_localizacaoCsv);
-                        arquivo.Close();
-                        return listaParaRetornar;
-                    }
-
-                    var linhasCsv = File.ReadAllLines(_localizacaoCsv);
-
-                    for (int i = 1; i < linhasCsv.Length; i++)
-                    {
-                        var financeiro = new Financeiro();
-
-                        if (financeiro.CriarPorLinhaCsv(linhasCsv[i]))
-                        {
-                            listaParaRetornar.Add(financeiro);
-                        }
-                    }
-
-
-                    return listaParaRetornar.OrderBy(financeiro => financeiro.Id).ToList();
+                    var arquivo = File.Create(_localizacaoArquivoCsv);
+                    arquivo.Close();
+                    return listaParaRetornar;
                 }
-                catch (Exception ex)
+
+                var linhasCsv = File.ReadAllLines(_localizacaoArquivoCsv);
+
+                for (int i = 1; i < linhasCsv.Length; i++)
                 {
-                    throw new Exception("Erro inesperado ao obter financeiros", ex);
+                    var financeiro = new Financeiro();
+
+                    if (financeiro.CriarPorLinhaCsv(linhasCsv[i]))
+                    {
+                        listaParaRetornar.Add(financeiro);
+                    }
                 }
+
+
+                return listaParaRetornar.OrderBy(financeiro => financeiro.Id).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro inesperado ao obter financeiros", ex);
             }
         }
         public List<Financeiro> ObterTodosConcluidosNoAno(int ano)
@@ -123,26 +120,23 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Financeiros
         {
             try
             {
-                lock (_aguardarExecucao)
+                var existeArquiv = File.Exists(_localizacaoArquivoCsv);
+
+                if (!existeArquiv)
                 {
-                    var existeArquiv = File.Exists(_localizacaoCsv);
-
-                    if (!existeArquiv)
-                    {
-                        var arquivo = File.Create(_localizacaoCsv);
-                        arquivo.Close();
-                    }
-
-                    var linhasCsv = new List<string>();
-                    linhasCsv.Add(Financeiro.CabecalhoCsv);
-
-                    foreach (var financeiro in financeiros)
-                    {
-                        linhasCsv.Add(financeiro.ParaLinhaCsv());
-                    }
-
-                    File.WriteAllLines(_localizacaoCsv, linhasCsv);
+                    var arquivo = File.Create(_localizacaoArquivoCsv);
+                    arquivo.Close();
                 }
+
+                var linhasCsv = new List<string>();
+                linhasCsv.Add(Financeiro.CabecalhoCsv);
+
+                foreach (var financeiro in financeiros)
+                {
+                    linhasCsv.Add(financeiro.ParaLinhaCsv());
+                }
+
+                File.WriteAllLines(_localizacaoArquivoCsv, linhasCsv);
             }
             catch (Exception ex)
             {

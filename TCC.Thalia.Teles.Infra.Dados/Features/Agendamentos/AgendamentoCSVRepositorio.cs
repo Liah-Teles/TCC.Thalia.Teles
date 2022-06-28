@@ -4,7 +4,6 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Agendamentos
 {
     public class AgendamentoCSVRepositorio : ContratoAgendamentoRepositorio
     {
-        private object _aguardarExecucao = new object();
         private string _localizacaoCsv;
 
         public AgendamentoCSVRepositorio(string localizacaoCsv)
@@ -91,48 +90,44 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Agendamentos
 
         public List<Agendamento> ObterTodos(DateTime data)
         {
-            lock (_aguardarExecucao)
+            var listaParaRetornar = new List<Agendamento>();
+            try
             {
+                var diretorioPorData = $"{_localizacaoCsv}\\{data.Year}\\{data.Month}";
 
-                var listaParaRetornar = new List<Agendamento>();
-                try
+                Directory.CreateDirectory(diretorioPorData);
+
+                var caminhoArquivo = $"{diretorioPorData}\\Agenda.csv";
+
+                var existeArquivo = File.Exists(caminhoArquivo);
+
+                if (!existeArquivo)
                 {
-                    var diretorioPorData = $"{_localizacaoCsv}\\{data.Year}\\{data.Month}";
-
-                    Directory.CreateDirectory(diretorioPorData);
-
-                    var caminhoArquivo = $"{diretorioPorData}\\Agenda.csv";
-
-                    var existeArquivo = File.Exists(caminhoArquivo);
-
-                    if (!existeArquivo)
-                    {
-                        var arquivo = File.Create(caminhoArquivo);
-                        arquivo.Close();
-                        return listaParaRetornar;
-                    }
-
-                    var linhasCsv = File.ReadAllLines(caminhoArquivo);
-
-                    for (int i = 1; i < linhasCsv.Length; i++)
-                    {
-                        var agendamento = new Agendamento();
-
-                        if (agendamento.CriarPorLinhaCsv(linhasCsv[i]))
-                        {
-                            listaParaRetornar.Add(agendamento);
-                        }
-                    }
-
-
-                    return listaParaRetornar.Where(agendamento => agendamento.Concluido == false)
-                                            .OrderBy(agendamento => agendamento.Id)
-                                            .ToList();
+                    var arquivo = File.Create(caminhoArquivo);
+                    arquivo.Close();
+                    return listaParaRetornar;
                 }
-                catch (Exception ex)
+
+                var linhasCsv = File.ReadAllLines(caminhoArquivo);
+
+                for (int i = 1; i < linhasCsv.Length; i++)
                 {
-                    throw new Exception("Erro inesperado ao obter agendamentos", ex);
+                    var agendamento = new Agendamento();
+
+                    if (agendamento.CriarPorLinhaCsv(linhasCsv[i]))
+                    {
+                        listaParaRetornar.Add(agendamento);
+                    }
                 }
+
+
+                return listaParaRetornar.Where(agendamento => agendamento.Concluido == false)
+                                        .OrderBy(agendamento => agendamento.Id)
+                                        .ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro inesperado ao obter agendamentos", ex);
             }
         }
 
@@ -166,20 +161,17 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Agendamentos
         {
             try
             {
-                lock (_aguardarExecucao)
+                var linhasCsv = new List<string>();
+                linhasCsv.Add(Agendamento.CabecalhoCsv);
+
+                foreach (var agendamento in agendamentos)
                 {
-                    var linhasCsv = new List<string>();
-                    linhasCsv.Add(Agendamento.CabecalhoCsv);
-
-                    foreach (var agendamento in agendamentos)
-                    {
-                        linhasCsv.Add(agendamento.ParaLinhaCsv());
-                    }
-
-                    var diretorioPorData = $"{_localizacaoCsv}\\{data.Year}\\{data.Month}\\Agenda.csv";
-
-                    File.WriteAllLines(diretorioPorData, linhasCsv);
+                    linhasCsv.Add(agendamento.ParaLinhaCsv());
                 }
+
+                var diretorioPorData = $"{_localizacaoCsv}\\{data.Year}\\{data.Month}\\Agenda.csv";
+
+                File.WriteAllLines(diretorioPorData, linhasCsv);
             }
             catch (Exception ex)
             {

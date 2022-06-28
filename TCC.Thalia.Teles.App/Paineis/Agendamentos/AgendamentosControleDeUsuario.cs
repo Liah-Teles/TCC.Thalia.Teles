@@ -6,21 +6,21 @@ namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
 {
     public partial class AgendamentosControleDeUsuario : UserControl
     {
-        private ContratoAgendamentoRepositorio _repositorioCsv;
-        private ContratoServicoRepositorio _contratoServicoRepositorio;
-        private ContratoClienteRepositorio _contratoClienteRepositorio;
+        private ContratoAgendamentoRepositorio _repositorioArquivoCsvAgendamento;
+        private ContratoServicoRepositorio _repositorioArquivoCsvServico;
+        private ContratoClienteRepositorio _repositorioArquivoCsvCliente;
         private List<Agendamento> _agendamentosNoGrid = new List<Agendamento>();
         private Agendamento _agendamentoSelecionado;
 
-        public AgendamentosControleDeUsuario(ContratoAgendamentoRepositorio repositorioCsv,
-                                            ContratoServicoRepositorio contratoServicoRepositorio,
-                                            ContratoClienteRepositorio contratoClienteRepositorio)
+        public AgendamentosControleDeUsuario(ContratoAgendamentoRepositorio repositorioArquivoCsvAgendamento,
+                                            ContratoServicoRepositorio repositorioArquivoCsvServico,
+                                            ContratoClienteRepositorio repositorioArquivoCsvCliente)
         {
             InitializeComponent();
 
-            _repositorioCsv = repositorioCsv;
-            _contratoServicoRepositorio = contratoServicoRepositorio;
-            _contratoClienteRepositorio = contratoClienteRepositorio;
+            _repositorioArquivoCsvAgendamento = repositorioArquivoCsvAgendamento;
+            _repositorioArquivoCsvServico = repositorioArquivoCsvServico;
+            _repositorioArquivoCsvCliente = repositorioArquivoCsvCliente;
 
             AtualizaGrid(DateTime.Now);
         }
@@ -32,7 +32,9 @@ namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
         {
             try
             {
-                _agendamentosNoGrid = _repositorioCsv.ObterTodos(data).Where(agendamento => agendamento.Data.Day == data.Day).ToList();
+                var todosAgendamentosPorData = _repositorioArquivoCsvAgendamento.ObterTodos(data);
+                var listaAgendamentosDoDia = todosAgendamentosPorData.Where(agendamento => agendamento.Data.Day == data.Day).ToList();
+                _agendamentosNoGrid = listaAgendamentosDoDia;
 
                 AdicionarListaNoGrid(_agendamentosNoGrid);
             }
@@ -62,14 +64,14 @@ namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
 
             try
             {
-                var servicos = _contratoServicoRepositorio.ObterTodos();
+                var servicos = _repositorioArquivoCsvServico.ObterTodos();
                 if (servicos == null || servicos.Count == 0)
                 {
                     MessageBox.Show("Adicione serviços antes de realizar um agendamento", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    var clientes = _contratoClienteRepositorio.ObterTodos();
+                    var clientes = _repositorioArquivoCsvCliente.ObterTodos();
 
                     if (clientes == null || clientes.Count == 0)
                     {
@@ -82,11 +84,12 @@ namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
 
                         if (resultadoDialogo == DialogResult.Yes)
                         {
-                            _repositorioCsv.Salvar(adicionarTela.ObterAgendamento());
+                            var agendamento = adicionarTela.ObterAgendamento();
+                            _repositorioArquivoCsvAgendamento.Salvar(agendamento);
                             MessageBox.Show("Inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
 
-                        AtualizaGrid(DateTime.Now);
+                            AtualizaGrid(DateTime.Now);
+                        }
                     }
                 }
             }
@@ -104,7 +107,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
             }
             else
             {
-                _repositorioCsv.Deletar(_agendamentoSelecionado.Id, _agendamentoSelecionado.Data);
+                _repositorioArquivoCsvAgendamento.Deletar(_agendamentoSelecionado.Id, _agendamentoSelecionado.Data);
                 MessageBox.Show("Removido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 AtualizaGrid(calendario.SelectionStart);
             }
@@ -121,8 +124,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
                 else
                 {
 
-                    var servicos = _contratoServicoRepositorio.ObterTodos();
-                    var clientes = _contratoClienteRepositorio.ObterTodos();
+                    var servicos = _repositorioArquivoCsvServico.ObterTodos();
+                    var clientes = _repositorioArquivoCsvCliente.ObterTodos();
 
                     var editarTela = new AdicionarAgendamentoTela(servicos, clientes, _agendamentoSelecionado);
 
@@ -130,7 +133,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
 
                     if (resultadoDialogo == DialogResult.Yes)
                     {
-                        _repositorioCsv.Atualizar(editarTela.ObterAgendamento());
+                        var agendamento = editarTela.ObterAgendamento();
+                        _repositorioArquivoCsvAgendamento.Atualizar(agendamento);
                         MessageBox.Show("Atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         AtualizaGrid(_agendamentoSelecionado.Data);
                     }

@@ -5,13 +5,13 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
 {
     public partial class DescontosControleDeUsuario : UserControl
     {
-        private ContratoDescontoRepositorio _repositorioCsvDescontos;
-        private ContratoServicoRepositorio _repositorioCsvServico;
-        public DescontosControleDeUsuario(ContratoDescontoRepositorio repositorioCsv, ContratoServicoRepositorio repositorioCsvServico)
+        private ContratoDescontoRepositorio _repositorioArquivoCsvDesconto;
+        private ContratoServicoRepositorio _repositorioArquivoCsvServico;
+        public DescontosControleDeUsuario(ContratoDescontoRepositorio repositorioArquivoCsvDesconto, ContratoServicoRepositorio repositorioArquivoCsvServico)
         {
             InitializeComponent();
-            _repositorioCsvDescontos = repositorioCsv;
-            _repositorioCsvServico = repositorioCsvServico;
+            _repositorioArquivoCsvDesconto = repositorioArquivoCsvDesconto;
+            _repositorioArquivoCsvServico = repositorioArquivoCsvServico;
 
             AtualizaGrid();
         }
@@ -24,7 +24,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
         {
             try
             {
-                var todosDescontos = _repositorioCsvDescontos.ObterTodos();
+                var todosDescontos = _repositorioArquivoCsvDesconto.ObterTodos();
 
                 List<Desconto> descontosValidos = new List<Desconto>();
 
@@ -32,7 +32,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
                 {
                     if(desconto.DataFinal < DateTime.Now)
                     {
-                        _repositorioCsvDescontos.Deletar(desconto.Id);
+                        _repositorioArquivoCsvDesconto.Deletar(desconto.Id);
                     }
 
                     descontosValidos.Add(desconto);
@@ -63,7 +63,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
         {
             try
             {
-                var servicos = _repositorioCsvServico.ObterTodos();
+                var servicos = _repositorioArquivoCsvServico.ObterTodos();
 
                 if (servicos == null || servicos.Count == 0)
                 {
@@ -77,7 +77,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
 
                     if (resultadoDialogo == DialogResult.Yes)
                     {
-                        _repositorioCsvDescontos.Salvar(criarDescontoTela.ObterDesconto());
+                        var desconto = criarDescontoTela.ObterDesconto();
+                        _repositorioArquivoCsvDesconto.Salvar(desconto);
                         MessageBox.Show("Inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         AtualizaGrid();
                     }
@@ -102,7 +103,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
 
                 if (resultado == DialogResult.Yes)
                 {
-                    _repositorioCsvDescontos.Deletar(id);
+                    _repositorioArquivoCsvDesconto.Deletar(id);
                     AtualizaGrid();
                 }
             }

@@ -5,15 +5,15 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
 {
     public partial class FinanceiroListaControleDeUsuario : UserControl
     {
-        private ContratoFinanceiroRepositorio _contratoFinanceiroRepositorio;
+        private ContratoFinanceiroRepositorio _repositorioArquivoCsvFinanceiro;
         private List<Financeiro> _listaConcluidosNoAno;
         private List<Financeiro> _listaFinanceiroMesSelecionado;
         private DateTime _ultimaDataSelecionada = default;
 
-        public FinanceiroListaControleDeUsuario(ContratoFinanceiroRepositorio contratoFinanceiroRepositorio)
+        public FinanceiroListaControleDeUsuario(ContratoFinanceiroRepositorio repositorioArquivoCsvFinanceiro)
         {
             InitializeComponent();
-            _contratoFinanceiroRepositorio = contratoFinanceiroRepositorio;
+            _repositorioArquivoCsvFinanceiro = repositorioArquivoCsvFinanceiro;
 
             AtualizaGrid(DateTime.Now);
         }
@@ -32,7 +32,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
             if (_ultimaDataSelecionada == default ||
                _ultimaDataSelecionada.Year != data.Year)
             {
-                _listaConcluidosNoAno = _contratoFinanceiroRepositorio.ObterTodosConcluidosNoAno(data.Year);
+                _listaConcluidosNoAno = _repositorioArquivoCsvFinanceiro.ObterTodosConcluidosNoAno(data.Year);
                 _ultimaDataSelecionada = data;
             }
 

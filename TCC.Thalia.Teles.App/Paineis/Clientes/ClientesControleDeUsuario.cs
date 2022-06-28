@@ -5,16 +5,16 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
 {
     public partial class ClientesControleDeUsuario : UserControl
     {
-        private ContratoClienteRepositorio _repositorioCsv;
-        private ContratoAgendamentoRepositorio _contratoAgendamentoRepositorio;
+        private ContratoClienteRepositorio _repositorioArquivoCsvCliente;
+        private ContratoAgendamentoRepositorio _repositorioArquivoCsvAgendamento;
 
-        public ClientesControleDeUsuario(ContratoClienteRepositorio repositorioCsv,
-                                        ContratoAgendamentoRepositorio contratoAgendamentoRepositorio)
+        public ClientesControleDeUsuario(ContratoClienteRepositorio repositorioArquivoCsvCliente,
+                                         ContratoAgendamentoRepositorio repositorioArquivoCsvAgendamento)
         {
             InitializeComponent();
 
-            _repositorioCsv = repositorioCsv;
-            _contratoAgendamentoRepositorio = contratoAgendamentoRepositorio;
+            _repositorioArquivoCsvCliente = repositorioArquivoCsvCliente;
+            _repositorioArquivoCsvAgendamento = repositorioArquivoCsvAgendamento;
 
             AtualizaGrid();
         }
@@ -27,7 +27,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
         {
             try
             {
-                AdicionarListaClientesNoGrid(_repositorioCsv.ObterTodos());
+                var listaClientes = _repositorioArquivoCsvCliente.ObterTodos();
+                AdicionarListaClientesNoGrid(listaClientes);
             }
             catch (Exception ex)
             {
@@ -57,7 +58,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
 
                 if (resultadoDialogo == DialogResult.Yes)
                 {
-                    _repositorioCsv.Salvar(adicionarClienteTela.ObterCliente());
+                    var cliente = adicionarClienteTela.ObterCliente();
+                    _repositorioArquivoCsvCliente.Salvar(cliente);
                     MessageBox.Show("Inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AtualizaGrid();
                 }
@@ -82,8 +84,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
 
                 if (resultado == DialogResult.Yes)
                 {
-                    _repositorioCsv.Deletar(idCliente);
-                    _contratoAgendamentoRepositorio.DeletarPorCpfCliente($"{cpfCliente}");
+                    _repositorioArquivoCsvCliente.Deletar(idCliente);
+                    _repositorioArquivoCsvAgendamento.DeletarPorCpfCliente($"{cpfCliente}");
                     AtualizaGrid();
                 }
             }
@@ -108,7 +110,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
                     var documento = $"{clienteLinha.Cells[3].Value}";
                     var endereco = $"{clienteLinha.Cells[4].Value}";
 
-                    var cliente = new Cliente
+                    var clienteComDadosDoGrid = new Cliente
                     {
                         Id = id,
                         Nome = nomeCliente,
@@ -117,12 +119,13 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
                         Endereco = endereco,
                     };
 
-                    var adicionarClienteTela = new AdicionarClienteTela(cliente);
+                    var adicionarClienteTela = new AdicionarClienteTela(clienteComDadosDoGrid);
                     var resultadoDialogo = adicionarClienteTela.ShowDialog();
 
                     if (resultadoDialogo == DialogResult.Yes)
                     {
-                        _repositorioCsv.Atualizar(adicionarClienteTela.ObterCliente());
+                        var clienteEditado = adicionarClienteTela.ObterCliente();
+                        _repositorioArquivoCsvCliente.Atualizar(clienteEditado);
                         MessageBox.Show("Atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         AtualizaGrid();
                     }

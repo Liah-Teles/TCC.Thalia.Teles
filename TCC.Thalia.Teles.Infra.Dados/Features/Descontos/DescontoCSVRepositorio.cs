@@ -4,12 +4,12 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Descontos
 {
     public class DescontoCSVRepositorio : ContratoDescontoRepositorio
     {
-        private object _aguardarExecucao = new object();
-        private string _localizacaoCsv;
+        private string _localizacaoArquivoCsv;
 
-        public DescontoCSVRepositorio(string localizacaoCsv)
+        public DescontoCSVRepositorio(string localizacaoArquivoCsv)
         {
-            _localizacaoCsv = $"{localizacaoCsv}\\Descontos.csv";
+            Directory.CreateDirectory(localizacaoArquivoCsv);
+            _localizacaoArquivoCsv = $"{localizacaoArquivoCsv}\\Descontos.csv";
         }
 
         public void Atualizar(Desconto desconto)
@@ -53,39 +53,36 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Descontos
 
         public List<Desconto> ObterTodos()
         {
-            lock (_aguardarExecucao)
+            var listaParaRetornar = new List<Desconto>();
+            try
             {
-                var listaParaRetornar = new List<Desconto>();
-                try
+                var existeArquivo = File.Exists(_localizacaoArquivoCsv);
+
+                if (!existeArquivo)
                 {
-                    var existeArquivo = File.Exists(_localizacaoCsv);
-
-                    if (!existeArquivo)
-                    {
-                        var arquivo = File.Create(_localizacaoCsv);
-                        arquivo.Close();
-                        return listaParaRetornar;
-                    }
-
-                    var linhasCsv = File.ReadAllLines(_localizacaoCsv);
-
-                    for (int i = 1; i < linhasCsv.Length; i++)
-                    {
-                        var desconto = new Desconto();
-
-                        if (desconto.CriarPorLinhaCsv(linhasCsv[i]))
-                        {
-                            listaParaRetornar.Add(desconto);
-                        }
-                    }
-
-
-                    return listaParaRetornar.OrderBy(desconto => desconto.Id).ToList();
+                    var arquivo = File.Create(_localizacaoArquivoCsv);
+                    arquivo.Close();
+                    return listaParaRetornar;
                 }
-                catch (Exception ex)
+
+                var linhasCsv = File.ReadAllLines(_localizacaoArquivoCsv);
+
+                for (int i = 1; i < linhasCsv.Length; i++)
                 {
-                    throw new Exception("Erro inesperado ao obter descontos", ex);
+                    var desconto = new Desconto();
+
+                    if (desconto.CriarPorLinhaCsv(linhasCsv[i]))
+                    {
+                        listaParaRetornar.Add(desconto);
+                    }
                 }
+
+
+                return listaParaRetornar.OrderBy(desconto => desconto.Id).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro inesperado ao obter descontos", ex);
             }
         }
 
@@ -119,26 +116,23 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Descontos
         {
             try
             {
-                lock (_aguardarExecucao)
+                var existeArquiv = File.Exists(_localizacaoArquivoCsv);
+
+                if (!existeArquiv)
                 {
-                    var existeArquiv = File.Exists(_localizacaoCsv);
-
-                    if (!existeArquiv)
-                    {
-                        var arquivo = File.Create(_localizacaoCsv);
-                        arquivo.Close();
-                    }
-
-                    var linhasCsv = new List<string>();
-                    linhasCsv.Add(Desconto.CabecalhoCsv);
-
-                    foreach (var desconto in descontos)
-                    {
-                        linhasCsv.Add(desconto.ParaLinhaCsv());
-                    }
-
-                    File.WriteAllLines(_localizacaoCsv, linhasCsv);
+                    var arquivo = File.Create(_localizacaoArquivoCsv);
+                    arquivo.Close();
                 }
+
+                var linhasCsv = new List<string>();
+                linhasCsv.Add(Desconto.CabecalhoCsv);
+
+                foreach (var desconto in descontos)
+                {
+                    linhasCsv.Add(desconto.ParaLinhaCsv());
+                }
+
+                File.WriteAllLines(_localizacaoArquivoCsv, linhasCsv);
             }
             catch (Exception ex)
             {
