@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using TCC.Thalia.Teles.App.Configuracoes;
+using TCC.Thalia.Teles.App.Confs;
 
 namespace TCC.Thalia.Teles.App
 {
@@ -9,7 +9,7 @@ namespace TCC.Thalia.Teles.App
         public LoginTela()
         {
             InitializeComponent();
-            var configuracaoJson = File.ReadAllText("Configuracoes\\configuracao.json");
+            var configuracaoJson = File.ReadAllText("Confs\\conf.json");
 
             _configuracao = JsonSerializer.Deserialize<Configuracao>(configuracaoJson);
         }
@@ -25,6 +25,7 @@ namespace TCC.Thalia.Teles.App
             {
                 var telaPrincipal = new PrincipalTela();
                 this.Hide();
+                telaPrincipal.Focus();
                 telaPrincipal.ShowDialog();
                 Application.Exit();
             }
@@ -32,6 +33,11 @@ namespace TCC.Thalia.Teles.App
             {
                 MessageBox.Show("Usuário ou senha invalidos.", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void etiquetaMudarSenha_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Modifique no arquivo em: 'Confs\\conf.json", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

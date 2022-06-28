@@ -58,14 +58,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 90</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>modificar senha</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -93,29 +114,17 @@
   <data name="caixaDeTextoPassword.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
   </data>
-  <data name="caixaDeTextoPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 60</value>
-  </data>
   <data name="caixaDeTextoPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
     <value>*</value>
   </data>
   <data name="caixaDeTextoPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>289, 27</value>
   </data>
-  <data name="caixaDeTextoPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
   <data name="caixaDeTextoUsuario.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
   </data>
-  <data name="caixaDeTextoUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 27</value>
-  </data>
   <data name="caixaDeTextoUsuario.Size" type="System.Drawing.Size, System.Drawing">
     <value>289, 27</value>
-  </data>
-  <data name="caixaDeTextoUsuario.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
   </data>
   <data name="botaoSair.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>

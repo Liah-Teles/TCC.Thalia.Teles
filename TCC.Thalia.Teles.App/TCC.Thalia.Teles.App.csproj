@@ -20,6 +20,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Update="Confs\Configuracao.cs">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Compile>
       <Compile Update="Paineis\Descontos\AdicionarDescontoTela.cs">
         <SubType>Form</SubType>
       </Compile>
@@ -33,7 +36,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Configuracoes\configuracao.json">
+      <None Update="Confs\conf.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>

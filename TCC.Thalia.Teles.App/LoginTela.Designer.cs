@@ -36,12 +36,14 @@
             this.caixaDeTextoUsuario = new System.Windows.Forms.TextBox();
             this.botaoSair = new System.Windows.Forms.Button();
             this.botaoLogin = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.caixaDeTextoPassword);
@@ -85,6 +87,13 @@
             this.botaoLogin.UseVisualStyleBackColor = true;
             this.botaoLogin.Click += new System.EventHandler(this.botaoLogin_Click);
             // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Name = "label3";
+            this.label3.Click += new System.EventHandler(this.etiquetaMudarSenha_Click);
+            // 
             // LoginTela
             // 
             resources.ApplyResources(this, "$this");
@@ -111,5 +120,6 @@
         private TextBox caixaDeTextoUsuario;
         private Button botaoSair;
         private Button botaoLogin;
+        private Label label3;
     }
 }

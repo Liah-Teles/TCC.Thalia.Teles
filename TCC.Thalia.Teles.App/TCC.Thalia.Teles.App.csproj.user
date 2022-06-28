@@ -39,5 +39,8 @@
     <EmbeddedResource Update="Paineis\Financeiros\FinanceiroControleDeUsuario.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Update="PrincipalTela.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

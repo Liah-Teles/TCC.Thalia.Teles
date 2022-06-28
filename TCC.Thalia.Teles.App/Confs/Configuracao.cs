@@ -1,4 +1,4 @@
-﻿namespace TCC.Thalia.Teles.App.Configuracoes
+﻿namespace TCC.Thalia.Teles.App.Confs
 {
     public class Configuracao
     {

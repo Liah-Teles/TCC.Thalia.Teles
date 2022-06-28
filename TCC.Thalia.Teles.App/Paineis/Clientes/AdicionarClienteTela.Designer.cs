@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdicionarClienteTela));
             this.botaoSalvar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,96 +42,58 @@
             // 
             // botaoSalvar
             // 
-            this.botaoSalvar.Location = new System.Drawing.Point(19, 132);
+            resources.ApplyResources(this.botaoSalvar, "botaoSalvar");
             this.botaoSalvar.Name = "botaoSalvar";
-            this.botaoSalvar.Size = new System.Drawing.Size(385, 28);
-            this.botaoSalvar.TabIndex = 5;
-            this.botaoSalvar.Text = "Salvar";
             this.botaoSalvar.UseVisualStyleBackColor = true;
             this.botaoSalvar.Click += new System.EventHandler(this.botaoSalvar_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(19, 32);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Nome:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(241, 98);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 20);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Celular:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(19, 65);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Endereço:";
             // 
             // caixaDeTextoNome
             // 
-            this.caixaDeTextoNome.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.caixaDeTextoNome.Location = new System.Drawing.Point(115, 29);
+            resources.ApplyResources(this.caixaDeTextoNome, "caixaDeTextoNome");
             this.caixaDeTextoNome.Name = "caixaDeTextoNome";
-            this.caixaDeTextoNome.Size = new System.Drawing.Size(289, 27);
-            this.caixaDeTextoNome.TabIndex = 1;
             // 
             // caixaDeTextoEndereco
             // 
-            this.caixaDeTextoEndereco.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.caixaDeTextoEndereco.Location = new System.Drawing.Point(115, 62);
+            resources.ApplyResources(this.caixaDeTextoEndereco, "caixaDeTextoEndereco");
             this.caixaDeTextoEndereco.Name = "caixaDeTextoEndereco";
-            this.caixaDeTextoEndereco.Size = new System.Drawing.Size(289, 27);
-            this.caixaDeTextoEndereco.TabIndex = 2;
             // 
             // caixaTextoMascaraCelular
             // 
             this.caixaTextoMascaraCelular.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.caixaTextoMascaraCelular.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.caixaTextoMascaraCelular.Location = new System.Drawing.Point(305, 94);
-            this.caixaTextoMascaraCelular.Mask = "(99) 00000-0000";
+            resources.ApplyResources(this.caixaTextoMascaraCelular, "caixaTextoMascaraCelular");
             this.caixaTextoMascaraCelular.Name = "caixaTextoMascaraCelular";
-            this.caixaTextoMascaraCelular.Size = new System.Drawing.Size(99, 27);
-            this.caixaTextoMascaraCelular.TabIndex = 4;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(19, 98);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "CPF:";
             // 
             // caixaTextoMascaraCpf
             // 
             this.caixaTextoMascaraCpf.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.caixaTextoMascaraCpf.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.caixaTextoMascaraCpf.Location = new System.Drawing.Point(115, 95);
-            this.caixaTextoMascaraCpf.Mask = "000.000.000-00";
+            resources.ApplyResources(this.caixaTextoMascaraCpf, "caixaTextoMascaraCpf");
             this.caixaTextoMascaraCpf.Name = "caixaTextoMascaraCpf";
-            this.caixaTextoMascaraCpf.Size = new System.Drawing.Size(99, 27);
-            this.caixaTextoMascaraCpf.TabIndex = 3;
             // 
             // AdicionarClienteTela
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(431, 179);
             this.Controls.Add(this.caixaTextoMascaraCpf);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.caixaTextoMascaraCelular);
@@ -147,8 +110,6 @@
             this.Name = "AdicionarClienteTela";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Adicionar Cliente";
             this.ResumeLayout(false);
             this.PerformLayout();
 
