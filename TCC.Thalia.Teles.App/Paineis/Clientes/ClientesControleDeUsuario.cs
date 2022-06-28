@@ -1,4 +1,4 @@
-﻿using TCC.Thalia.Teles.Dominio.Features.Atendimentos;
+﻿using TCC.Thalia.Teles.Dominio.Features.Agendamentos;
 using TCC.Thalia.Teles.Dominio.Features.Clientes;
 
 namespace TCC.Thalia.Teles.App.Paineis.Clientes
@@ -6,14 +6,15 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
     public partial class ClientesControleDeUsuario : UserControl
     {
         private ContratoClienteRepositorio _repositorioCsv;
-        private ContratoAtendimentoRepositorio _contratoAtendimentoRepositorio;
+        private ContratoAgendamentoRepositorio _contratoAgendamentoRepositorio;
 
-        public ClientesControleDeUsuario(ContratoClienteRepositorio repositorioCsv, ContratoAtendimentoRepositorio contratoAtendimentoRepositorio)
+        public ClientesControleDeUsuario(ContratoClienteRepositorio repositorioCsv,
+                                        ContratoAgendamentoRepositorio contratoAgendamentoRepositorio)
         {
             InitializeComponent();
 
             _repositorioCsv = repositorioCsv;
-            _contratoAtendimentoRepositorio = contratoAtendimentoRepositorio;
+            _contratoAgendamentoRepositorio = contratoAgendamentoRepositorio;
 
             AtualizaGrid();
         }
@@ -58,8 +59,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
                 {
                     _repositorioCsv.Salvar(adicionarClienteTela.ObterCliente());
                     MessageBox.Show("Inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AtualizaGrid();
                 }
-                AtualizaGrid();
             }
             catch (Exception ex)
             {
@@ -73,7 +74,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
             {
                 var clienteLinha = gridClientes.SelectedRows[0];
 
-                var idCliente = (int)clienteLinha.Cells[0].Value;
+                var idCliente = int.Parse($"{clienteLinha.Cells[0].Value}");
                 var nomeCliente = clienteLinha.Cells[1].Value;
                 var cpfCliente = clienteLinha.Cells[3].Value;
 
@@ -82,22 +83,9 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
                 if (resultado == DialogResult.Yes)
                 {
                     _repositorioCsv.Deletar(idCliente);
-                    _contratoAtendimentoRepositorio.DeletarPorCpfCliente($"{cpfCliente}");
-
+                    _contratoAgendamentoRepositorio.DeletarPorCpfCliente($"{cpfCliente}");
                     AtualizaGrid();
                 }
-            }
-        }
-
-        private void gridClientes_MouseDown(object sender, MouseEventArgs e)
-
-        {
-            botaoRemover.Enabled = false;
-            botaoEditar.Enabled = false;
-            if (gridClientes.SelectedRows.Count > 0)
-            {
-                botaoRemover.Enabled = true;
-                botaoEditar.Enabled = true;
             }
         }
 
@@ -109,35 +97,36 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
                 if (gridClientes.SelectedRows.Count == 0)
                 {
                     MessageBox.Show("Selecione um cliente para editar!", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
                 }
-
-                var clienteLinha = gridClientes.SelectedRows[0];
-
-                var id = (int)clienteLinha.Cells[0].Value;
-                var nomeCliente = $"{clienteLinha.Cells[1].Value}";
-                var celular = $"{clienteLinha.Cells[2].Value}";
-                var documento = $"{clienteLinha.Cells[3].Value}";
-                var endereco = $"{clienteLinha.Cells[4].Value}";
-
-                var cliente = new Cliente
+                else
                 {
-                    Id = id,
-                    Nome = nomeCliente,
-                    Celular = celular,
-                    Cpf = documento,
-                    Endereco = endereco,
-                };
+                    var clienteLinha = gridClientes.SelectedRows[0];
 
-                var adicionarClienteTela = new AdicionarClienteTela(cliente);
-                var resultadoDialogo = adicionarClienteTela.ShowDialog();
+                    var id = int.Parse($"{clienteLinha.Cells[0].Value}");
+                    var nomeCliente = $"{clienteLinha.Cells[1].Value}";
+                    var celular = $"{clienteLinha.Cells[2].Value}";
+                    var documento = $"{clienteLinha.Cells[3].Value}";
+                    var endereco = $"{clienteLinha.Cells[4].Value}";
 
-                if (resultadoDialogo == DialogResult.Yes)
-                {
-                    _repositorioCsv.Atualizar(adicionarClienteTela.ObterCliente());
-                    MessageBox.Show("Atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var cliente = new Cliente
+                    {
+                        Id = id,
+                        Nome = nomeCliente,
+                        Celular = celular,
+                        Cpf = documento,
+                        Endereco = endereco,
+                    };
+
+                    var adicionarClienteTela = new AdicionarClienteTela(cliente);
+                    var resultadoDialogo = adicionarClienteTela.ShowDialog();
+
+                    if (resultadoDialogo == DialogResult.Yes)
+                    {
+                        _repositorioCsv.Atualizar(adicionarClienteTela.ObterCliente());
+                        MessageBox.Show("Atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AtualizaGrid();
+                    }
                 }
-                AtualizaGrid();
             }
             catch (Exception ex)
             {

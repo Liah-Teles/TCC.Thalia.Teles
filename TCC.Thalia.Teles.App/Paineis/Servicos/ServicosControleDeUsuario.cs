@@ -48,8 +48,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
                 {
                     _repositorioCsv.Salvar(adicionarServicoTela.ObterServico());
                     MessageBox.Show("Inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AtualizaGrid();
                 }
-                AtualizaGrid();
             }
             catch (Exception ex)
             {
@@ -63,8 +63,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
             {
                 var servicoLinha = gridServicos.SelectedRows[0];
 
-                var id = (int)servicoLinha.Cells[0].Value;
-                var nome = servicoLinha.Cells[1].Value;
+                var id = int.Parse($"{servicoLinha.Cells[0].Value}");
+                var nome = $"{servicoLinha.Cells[1].Value}";
 
                 var resultado = MessageBox.Show($"Deseja realmente remover o serviço: {nome}?", "Atênção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -82,34 +82,31 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
             if (gridServicos.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Selecione um serviço para editar", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
             }
-
-
-            try
+            else
             {
-                var servicoLinha = gridServicos.SelectedRows[0];
-
-                var idServicoSelecionado = (int)servicoLinha.Cells[0].Value;
-
-                var servico = _servicos.FirstOrDefault(serv => serv.Id == idServicoSelecionado);
-
-                var adicionarServicoTela = new AdicionarServicoTela(servico);
-
-                if (adicionarServicoTela.ShowDialog() == DialogResult.Yes)
+                try
                 {
-                    _repositorioCsv.Atualizar(adicionarServicoTela.ObterServico());
-                    MessageBox.Show("Atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var servicoLinha = gridServicos.SelectedRows[0];
+
+                    var idServicoSelecionado = (int)servicoLinha.Cells[0].Value;
+
+                    var servico = _servicos.FirstOrDefault(serv => serv.Id == idServicoSelecionado);
+
+                    var adicionarServicoTela = new AdicionarServicoTela(servico);
+
+                    if (adicionarServicoTela.ShowDialog() == DialogResult.Yes)
+                    {
+                        _repositorioCsv.Atualizar(adicionarServicoTela.ObterServico());
+                        MessageBox.Show("Atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AtualizaGrid();
+                    }
                 }
-
-                AtualizaGrid();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
         }
 
         private void ServicosControleDeUsuario_Load(object sender, EventArgs e)

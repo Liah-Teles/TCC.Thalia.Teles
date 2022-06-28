@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridAtendimentos = new System.Windows.Forms.DataGridView();
-            this.colunaIdAtendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridAgendamentos = new System.Windows.Forms.DataGridView();
+            this.colunaIdAgendamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colunaCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,43 +47,43 @@
             this.gridDescontos = new System.Windows.Forms.DataGridView();
             this.colunaNomeServicoDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colunaValorDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.gridAtendimentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAgendamentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridServicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDescontos)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridAtendimentos
+            // gridAgendamentos
             // 
-            this.gridAtendimentos.AllowUserToAddRows = false;
-            this.gridAtendimentos.AllowUserToDeleteRows = false;
-            this.gridAtendimentos.AllowUserToResizeColumns = false;
-            this.gridAtendimentos.AllowUserToResizeRows = false;
-            this.gridAtendimentos.BackgroundColor = System.Drawing.Color.White;
-            this.gridAtendimentos.ColumnHeadersHeight = 35;
-            this.gridAtendimentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridAtendimentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colunaIdAtendimento,
+            this.gridAgendamentos.AllowUserToAddRows = false;
+            this.gridAgendamentos.AllowUserToDeleteRows = false;
+            this.gridAgendamentos.AllowUserToResizeColumns = false;
+            this.gridAgendamentos.AllowUserToResizeRows = false;
+            this.gridAgendamentos.BackgroundColor = System.Drawing.Color.White;
+            this.gridAgendamentos.ColumnHeadersHeight = 35;
+            this.gridAgendamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridAgendamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colunaIdAgendamento,
             this.colunaCliente});
-            this.gridAtendimentos.GridColor = System.Drawing.Color.White;
-            this.gridAtendimentos.Location = new System.Drawing.Point(17, 67);
-            this.gridAtendimentos.MultiSelect = false;
-            this.gridAtendimentos.Name = "gridAtendimentos";
-            this.gridAtendimentos.ReadOnly = true;
-            this.gridAtendimentos.RowHeadersVisible = false;
-            this.gridAtendimentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridAtendimentos.RowTemplate.Height = 25;
-            this.gridAtendimentos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.gridAtendimentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridAtendimentos.Size = new System.Drawing.Size(498, 284);
-            this.gridAtendimentos.TabIndex = 1;
-            this.gridAtendimentos.SelectionChanged += new System.EventHandler(this.gridAtendimentos_SelectionChanged);
+            this.gridAgendamentos.GridColor = System.Drawing.Color.White;
+            this.gridAgendamentos.Location = new System.Drawing.Point(17, 67);
+            this.gridAgendamentos.MultiSelect = false;
+            this.gridAgendamentos.Name = "gridAgendamentos";
+            this.gridAgendamentos.ReadOnly = true;
+            this.gridAgendamentos.RowHeadersVisible = false;
+            this.gridAgendamentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridAgendamentos.RowTemplate.Height = 25;
+            this.gridAgendamentos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.gridAgendamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridAgendamentos.Size = new System.Drawing.Size(498, 284);
+            this.gridAgendamentos.TabIndex = 1;
+            this.gridAgendamentos.SelectionChanged += new System.EventHandler(this.gridAgendamentos_SelectionChanged);
             // 
-            // colunaIdAtendimento
+            // colunaIdAgendamento
             // 
-            this.colunaIdAtendimento.HeaderText = "Id";
-            this.colunaIdAtendimento.Name = "colunaIdAtendimento";
-            this.colunaIdAtendimento.ReadOnly = true;
-            this.colunaIdAtendimento.Width = 50;
+            this.colunaIdAgendamento.HeaderText = "Id";
+            this.colunaIdAgendamento.Name = "colunaIdAgendamento";
+            this.colunaIdAgendamento.ReadOnly = true;
+            this.colunaIdAgendamento.Width = 50;
             // 
             // colunaCliente
             // 
@@ -101,7 +101,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(181, 20);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Selecione o atendimento";
+            this.label1.Text = "Selecione o agendamento";
             // 
             // label2
             // 
@@ -232,7 +232,7 @@
             this.botaoFinalizar.Name = "botaoFinalizar";
             this.botaoFinalizar.Size = new System.Drawing.Size(498, 34);
             this.botaoFinalizar.TabIndex = 7;
-            this.botaoFinalizar.Text = "Finalizar Atendimento";
+            this.botaoFinalizar.Text = "Finalizar Agendamento";
             this.botaoFinalizar.UseVisualStyleBackColor = true;
             this.botaoFinalizar.Click += new System.EventHandler(this.botaoFinalizar_Click);
             // 
@@ -292,11 +292,11 @@
             this.Controls.Add(this.gridServicos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.gridAtendimentos);
+            this.Controls.Add(this.gridAgendamentos);
             this.Name = "FinanceiroControleDeUsuario";
             this.Size = new System.Drawing.Size(849, 511);
             this.Load += new System.EventHandler(this.FinanceiroControleDeUsuario_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gridAtendimentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAgendamentos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridServicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDescontos)).EndInit();
             this.ResumeLayout(false);
@@ -306,7 +306,7 @@
 
         #endregion
 
-        private DataGridView gridAtendimentos;
+        private DataGridView gridAgendamentos;
         private Label label1;
         private Label label2;
         private DataGridView gridServicos;
@@ -318,7 +318,7 @@
         private TextBox caixaTextoDesconto;
         private TextBox caixaTextoTotal;
         private Button botaoFinalizar;
-        private DataGridViewTextBoxColumn colunaIdAtendimento;
+        private DataGridViewTextBoxColumn colunaIdAgendamento;
         private DataGridViewTextBoxColumn colunaCliente;
         private DataGridViewTextBoxColumn colunaIdServico;
         private DataGridViewTextBoxColumn colunaNomeServico;

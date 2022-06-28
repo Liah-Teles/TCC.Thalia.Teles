@@ -42,8 +42,8 @@
             this.colunaNomeServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colunaValorServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.caixaDataSelecionada = new System.Windows.Forms.DateTimePicker();
-            this.gridAtendimentos = new System.Windows.Forms.DataGridView();
-            this.colunaIdAtendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridAgendamentos = new System.Windows.Forms.DataGridView();
+            this.colunaIdAgendamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colunaCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colunaCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colunaValorParcial = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +52,7 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridServicos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridAtendimentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAgendamentos)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -65,13 +65,13 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.caixaDataSelecionada);
-            this.groupBox1.Controls.Add(this.gridAtendimentos);
+            this.groupBox1.Controls.Add(this.gridAgendamentos);
             this.groupBox1.Location = new System.Drawing.Point(7, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(865, 496);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Atendimentos por mês/ano";
+            this.groupBox1.Text = "Agendamentos por mês/ano";
             // 
             // caixaTextoDescontos
             // 
@@ -143,7 +143,7 @@
             this.groupBox2.Size = new System.Drawing.Size(236, 361);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Serviços do atendimento";
+            this.groupBox2.Text = "Serviços do agendamento";
             // 
             // caixaTextoTotalServiços
             // 
@@ -218,42 +218,42 @@
             this.caixaDataSelecionada.TabIndex = 22;
             this.caixaDataSelecionada.ValueChanged += new System.EventHandler(this.caixaDataSelecionada_ValueChanged);
             // 
-            // gridAtendimentos
+            // gridAgendamentos
             // 
-            this.gridAtendimentos.AllowUserToAddRows = false;
-            this.gridAtendimentos.AllowUserToDeleteRows = false;
-            this.gridAtendimentos.AllowUserToResizeColumns = false;
-            this.gridAtendimentos.AllowUserToResizeRows = false;
-            this.gridAtendimentos.BackgroundColor = System.Drawing.Color.White;
-            this.gridAtendimentos.ColumnHeadersHeight = 35;
-            this.gridAtendimentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridAtendimentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colunaIdAtendimento,
+            this.gridAgendamentos.AllowUserToAddRows = false;
+            this.gridAgendamentos.AllowUserToDeleteRows = false;
+            this.gridAgendamentos.AllowUserToResizeColumns = false;
+            this.gridAgendamentos.AllowUserToResizeRows = false;
+            this.gridAgendamentos.BackgroundColor = System.Drawing.Color.White;
+            this.gridAgendamentos.ColumnHeadersHeight = 35;
+            this.gridAgendamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridAgendamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colunaIdAgendamento,
             this.colunaCliente,
             this.colunaCpf,
             this.colunaValorParcial,
             this.colunaDesconto,
             this.colunaTotal});
-            this.gridAtendimentos.GridColor = System.Drawing.Color.White;
-            this.gridAtendimentos.Location = new System.Drawing.Point(4, 64);
-            this.gridAtendimentos.MultiSelect = false;
-            this.gridAtendimentos.Name = "gridAtendimentos";
-            this.gridAtendimentos.ReadOnly = true;
-            this.gridAtendimentos.RowHeadersVisible = false;
-            this.gridAtendimentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridAtendimentos.RowTemplate.Height = 25;
-            this.gridAtendimentos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.gridAtendimentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridAtendimentos.Size = new System.Drawing.Size(619, 391);
-            this.gridAtendimentos.TabIndex = 20;
-            this.gridAtendimentos.SelectionChanged += new System.EventHandler(this.gridAtendimentos_SelectionChanged);
+            this.gridAgendamentos.GridColor = System.Drawing.Color.White;
+            this.gridAgendamentos.Location = new System.Drawing.Point(4, 64);
+            this.gridAgendamentos.MultiSelect = false;
+            this.gridAgendamentos.Name = "gridAgendamentos";
+            this.gridAgendamentos.ReadOnly = true;
+            this.gridAgendamentos.RowHeadersVisible = false;
+            this.gridAgendamentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridAgendamentos.RowTemplate.Height = 25;
+            this.gridAgendamentos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.gridAgendamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridAgendamentos.Size = new System.Drawing.Size(619, 391);
+            this.gridAgendamentos.TabIndex = 20;
+            this.gridAgendamentos.SelectionChanged += new System.EventHandler(this.gridAgendamentos_SelectionChanged);
             // 
-            // colunaIdAtendimento
+            // colunaIdAgendamento
             // 
-            this.colunaIdAtendimento.HeaderText = "Id";
-            this.colunaIdAtendimento.Name = "colunaIdAtendimento";
-            this.colunaIdAtendimento.ReadOnly = true;
-            this.colunaIdAtendimento.Width = 50;
+            this.colunaIdAgendamento.HeaderText = "Id";
+            this.colunaIdAgendamento.Name = "colunaIdAgendamento";
+            this.colunaIdAgendamento.ReadOnly = true;
+            this.colunaIdAgendamento.Width = 50;
             // 
             // colunaCliente
             // 
@@ -308,7 +308,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridServicos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridAtendimentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAgendamentos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -328,8 +328,8 @@
         private DataGridViewTextBoxColumn colunaNomeServico;
         private DataGridViewTextBoxColumn colunaValorServico;
         private DateTimePicker caixaDataSelecionada;
-        private DataGridView gridAtendimentos;
-        private DataGridViewTextBoxColumn colunaIdAtendimento;
+        private DataGridView gridAgendamentos;
+        private DataGridViewTextBoxColumn colunaIdAgendamento;
         private DataGridViewTextBoxColumn colunaCliente;
         private DataGridViewTextBoxColumn colunaCpf;
         private DataGridViewTextBoxColumn colunaValorParcial;

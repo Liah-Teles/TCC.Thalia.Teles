@@ -20,47 +20,56 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
         {
             var servicoSelecionado = listaNomesServicos.SelectedItem as Servico;
 
-            if(servicoSelecionado == null)
+            if (VerificaSeEstaTudoValido(servicoSelecionado) == true)
+            {
+                _desconto = new Desconto
+                {
+                    Valor = caixaNumericaValor.Value + 0.00M,
+                    NomeServico = servicoSelecionado.Nome,
+                    DataInicio = caixaDataInicio.Value.Date,
+                    DataFinal = caixaDataFinal.Value.Date,
+                };
+
+                var mensagem = _desconto.ObterMensagemNaoValidado();
+
+                if (string.IsNullOrEmpty(mensagem))
+                {
+                    DialogResult = DialogResult.Yes;
+                }
+                else
+                {
+                    MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private bool VerificaSeEstaTudoValido(Servico servicoSelecionado)
+        {
+            if (servicoSelecionado == null)
             {
                 MessageBox.Show("Selecione um serviço", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
 
-            if(caixaNumericaValor.Value >= servicoSelecionado.Valor)
+            if (caixaNumericaValor.Value >= servicoSelecionado.Valor)
             {
                 MessageBox.Show("Desconto não pode possuir valor maior que o serviço.", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
 
             if (caixaDataInicio.Value.Date >= caixaDataFinal.Value.Date)
             {
                 MessageBox.Show("Data de inicio não pode ser maior ou igual a data final.", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
 
             if (caixaDataInicio.Value.Date < DateTime.Now.Date)
             {
                 MessageBox.Show("Data de inicio invalida, deve ser maior que data de hoje.", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
 
-            _desconto = new Desconto
-            {
-                Valor = caixaNumericaValor.Value + 0.00M,
-                NomeServico = servicoSelecionado.Nome,
-                DataInicio = caixaDataInicio.Value.Date,
-                DataFinal = caixaDataFinal.Value.Date,
-            };
-
-            var mensagem = _desconto.ObterMensagemNaoValidado();
-
-            if (string.IsNullOrEmpty(mensagem))
-            {
-                DialogResult = DialogResult.Yes;
-                return;
-            }
-
-            MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return true;
         }
 
         public Desconto ObterDesconto()

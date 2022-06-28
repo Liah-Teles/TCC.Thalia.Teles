@@ -1,4 +1,4 @@
-﻿using TCC.Thalia.Teles.Dominio.Features.Atendimentos;
+﻿using TCC.Thalia.Teles.Dominio.Features.Agendamentos;
 using TCC.Thalia.Teles.Dominio.Features.Descontos;
 
 namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
@@ -9,11 +9,11 @@ namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
         public decimal ValorParcial { get; set; }
         public decimal DescontoAplicado { get; set; }
         public decimal Total { get; set; }
-        public Atendimento Atendimento { get; set; }
+        public Agendamento Agendamento { get; set; }
         public List<Desconto> Descontos { get; set; } = new List<Desconto>();
 
 
-        public static string CabecalhoCsv => "Id;ValorParcial;DescontoAplicado;Total;Atendimento;Descontos";
+        public static string CabecalhoCsv => "Id;ValorParcial;DescontoAplicado;Total;Agendamento;Descontos";
 
 
         public string ObterMensagemNaoValidado()
@@ -22,8 +22,8 @@ namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
                 return "Valor parcial é obrigatorio";
             if (Total > 0)
                 return "Valor total é obrigatorio";
-            if (Atendimento == null)
-                return "Atendimento é obrigatorio";
+            if (Agendamento == null)
+                return "Agendamento é obrigatorio";
             if (Descontos.Count == 0)
                 return "Valor total é obrigatorio";
 
@@ -46,9 +46,9 @@ namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
                 DescontoAplicado = decimal.Parse(colunas[2]);
                 Total = decimal.Parse(colunas[3]);
 
-                var atendimentoTexto = $"{colunas[4]}".Replace("#", ";");
-                Atendimento = new Atendimento();
-                if (!Atendimento.CriarPorLinhaCsv(atendimentoTexto))
+                var agendamentoTexto = $"{colunas[4]}".Replace("#", ";");
+                Agendamento = new Agendamento();
+                if (!Agendamento.CriarPorLinhaCsv(agendamentoTexto))
                     return false;
 
                 if (Descontos == null)
@@ -82,7 +82,7 @@ namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
         {
             CalculaValoresFinanceiro();
 
-            var atendimentoString = Atendimento.ParaLinhaCsv().Replace(";", "#");
+            var agendamentoString = Agendamento.ParaLinhaCsv().Replace(";", "#");
 
             var promocoesString = "";
             foreach (var desconto in Descontos)
@@ -90,13 +90,13 @@ namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
                 promocoesString += $"{desconto.ParaLinhaCsv().Replace(";", "#")}|";
             }
 
-            return $"{Id};{ValorParcial};{DescontoAplicado};{Total};{atendimentoString};{promocoesString}";
+            return $"{Id};{ValorParcial};{DescontoAplicado};{Total};{agendamentoString};{promocoesString}";
         }
 
         public void CalculaValoresFinanceiro()
         {
             ValorParcial = 0;
-            foreach (var servico in Atendimento.Servicos)
+            foreach (var servico in Agendamento.Servicos)
             {
                 ValorParcial += servico.Valor;
             }

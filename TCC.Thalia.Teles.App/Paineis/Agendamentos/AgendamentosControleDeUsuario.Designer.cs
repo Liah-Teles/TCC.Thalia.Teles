@@ -1,6 +1,6 @@
-﻿namespace TCC.Thalia.Teles.App.Paineis.Atendimentos
+﻿namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
 {
-    partial class AtendimentosControleDeUsuario
+    partial class AgendamentosControleDeUsuario
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -192,7 +192,7 @@
             this.botaoEditar.UseVisualStyleBackColor = true;
             this.botaoEditar.Click += new System.EventHandler(this.botaoEditar_Click);
             // 
-            // AtendimentosControleDeUsuario
+            // AgendamentosControleDeUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -205,9 +205,9 @@
             this.Controls.Add(this.calendario);
             this.Controls.Add(this.gridAgenda);
             this.ForeColor = System.Drawing.Color.Black;
-            this.Name = "AtendimentosControleDeUsuario";
+            this.Name = "AgendamentosControleDeUsuario";
             this.Size = new System.Drawing.Size(896, 554);
-            this.Load += new System.EventHandler(this.AtendimentosControleDeUsuario_Load);
+            this.Load += new System.EventHandler(this.AgendamentosControleDeUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridAgenda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridServicos)).EndInit();
             this.ResumeLayout(false);

@@ -25,7 +25,7 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Financeiros
                 csvFinanceiro.Total = financeiro.Total;
                 csvFinanceiro.ValorParcial = financeiro.ValorParcial;
                 csvFinanceiro.DescontoAplicado = financeiro.DescontoAplicado;
-                csvFinanceiro.Atendimento = financeiro.Atendimento;
+                csvFinanceiro.Agendamento = financeiro.Agendamento;
                 csvFinanceiro.Descontos = financeiro.Descontos;
 
                 financeiros.Add(csvFinanceiro);
@@ -94,8 +94,8 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Financeiros
         public List<Financeiro> ObterTodosConcluidosNoAno(int ano)
         {
             var todos = ObterTodos();
-            var todosDoAno = todos.Where(financeiro => financeiro.Atendimento.Data.Year == ano);
-            var concluidos = todosDoAno.Where(financeiro => financeiro.Atendimento.Concluido);
+            var todosDoAno = todos.Where(financeiro => financeiro.Agendamento.Data.Year == ano);
+            var concluidos = todosDoAno.Where(financeiro => financeiro.Agendamento.Concluido);
 
             return concluidos.ToList();
         }

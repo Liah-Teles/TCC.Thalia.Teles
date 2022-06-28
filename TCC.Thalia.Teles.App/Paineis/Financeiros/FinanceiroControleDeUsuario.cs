@@ -1,4 +1,4 @@
-﻿using TCC.Thalia.Teles.Dominio.Features.Atendimentos;
+﻿using TCC.Thalia.Teles.Dominio.Features.Agendamentos;
 using TCC.Thalia.Teles.Dominio.Features.Descontos;
 using TCC.Thalia.Teles.Dominio.Features.Financeiros;
 
@@ -7,24 +7,24 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
     public partial class FinanceiroControleDeUsuario : UserControl
     {
         private ContratoFinanceiroRepositorio _contratoFinanceiroRepositorio;
-        private ContratoAtendimentoRepositorio _contratoAtendimentoRepositorio;
-        private List<Atendimento> _atendimentos;
+        private ContratoAgendamentoRepositorio _contratoAgendamentoRepositorio;
+        private List<Agendamento> _agendamentos;
         private List<Desconto> _promocoes;
         private List<Desconto> _promocoesDentroDaLista = new List<Desconto>();
 
         public FinanceiroControleDeUsuario(ContratoFinanceiroRepositorio contratoFinanceiroRepositorio,
-                                          ContratoAtendimentoRepositorio contratoAtendimentoRepositorio,
-                                          List<Atendimento> atendimentos, List<Desconto> promocoes)
+                                          ContratoAgendamentoRepositorio contratoAgendamentoRepositorio,
+                                          List<Agendamento> agendamentos, List<Desconto> promocoes)
         {
             InitializeComponent();
             _contratoFinanceiroRepositorio = contratoFinanceiroRepositorio;
-            _contratoAtendimentoRepositorio = contratoAtendimentoRepositorio;
-            _atendimentos = atendimentos;
+            _contratoAgendamentoRepositorio = contratoAgendamentoRepositorio;
+            _agendamentos = agendamentos;
             _promocoes = promocoes;
 
-            if (_atendimentos != null)
+            if (_agendamentos != null)
             {
-                AdicionarListaNoGrid(_atendimentos);
+                AdicionarListaNoGrid(_agendamentos);
             }
         }
 
@@ -32,28 +32,29 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
         // Metodos
         // ########################################
 
-        private void AdicionarListaNoGrid(List<Atendimento> atendimentos)
+        private void AdicionarListaNoGrid(List<Agendamento> agendamentos)
         {
-            gridAtendimentos.Rows.Clear();
+            gridAgendamentos.Rows.Clear();
             gridServicos.Rows.Clear();
 
-            foreach (var atendimento in atendimentos)
+            foreach (var agendamento in agendamentos)
             {
-                gridAtendimentos.Rows.Add(atendimento.Id, atendimento.Cliente);
+                gridAgendamentos.Rows.Add(agendamento.Id, agendamento.Cliente);
             }
         }
 
-        private decimal AdicionaDescontosNaListaERetornaDescontos(Atendimento atendimentoSelecionado)
+        private decimal AdicionaDescontosNaListaERetornaDescontos(Agendamento agendamentoSelecionado)
         {
             gridDescontos.Rows.Clear();
             decimal descontos = 0;
+
             if (_promocoes != null)
             {
                 foreach (var desconto in _promocoes)
                 {
-                    if(atendimentoSelecionado.Data >= desconto.DataInicio && atendimentoSelecionado.Data <= desconto.DataFinal)
+                    if (agendamentoSelecionado.Data >= desconto.DataInicio && agendamentoSelecionado.Data <= desconto.DataFinal)
                     {
-                        if (atendimentoSelecionado.Servicos.Any(servico => servico.Nome == desconto.NomeServico))
+                        if (agendamentoSelecionado.Servicos.Any(servico => servico.Nome == desconto.NomeServico))
                         {
                             gridDescontos.Rows.Add(desconto.NomeServico, $"R$ {desconto.Valor}");
 
@@ -67,12 +68,12 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
             return descontos;
         }
 
-        private decimal AdicionaServicosERetornaValorDaSomaDeles(Atendimento atendimentoSelecionado)
+        private decimal AdicionaServicosERetornaValorDaSomaDeles(Agendamento agendamentoSelecionado)
         {
             gridServicos.Rows.Clear();
             decimal valorParcial = 0;
 
-            foreach (var servico in atendimentoSelecionado.Servicos)
+            foreach (var servico in agendamentoSelecionado.Servicos)
             {
                 gridServicos.Rows.Add(servico.Id, servico.Nome);
                 valorParcial += servico.Valor;
@@ -81,89 +82,89 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
             return valorParcial;
         }
 
-        private Atendimento BuscaAtendimentoSelecionado()
+        private Agendamento BuscaAgendamentoSelecionado()
         {
-            var atendimentoLinha = gridAtendimentos.SelectedRows[0];
+            var agendamentoLinha = gridAgendamentos.SelectedRows[0];
 
-            var id = (int)atendimentoLinha.Cells[0].Value;
+            var id = int.Parse($"{agendamentoLinha.Cells[0].Value}");
 
-            return _atendimentos.FirstOrDefault(atendimento => atendimento.Id == id);
+            return _agendamentos.FirstOrDefault(agendamento => agendamento.Id == id);
         }
 
         // ########################################
         // Eventos dos componentes de financeiro
         // ########################################
 
-        private void gridAtendimentos_SelectionChanged(object sender, EventArgs e)
+        private void gridAgendamentos_SelectionChanged(object sender, EventArgs e)
         {
             _promocoesDentroDaLista.Clear();
 
-            if (gridAtendimentos.SelectedRows?.Count > 0)
+            if (gridAgendamentos.SelectedRows?.Count > 0)
             {
-                Atendimento atendimentoSelecionado = BuscaAtendimentoSelecionado();
+                Agendamento agendamentoSelecionado = BuscaAgendamentoSelecionado();
 
-                if (atendimentoSelecionado == null)
-                    return;
+                if (agendamentoSelecionado != null)
+                {
+                    var valorParcial = AdicionaServicosERetornaValorDaSomaDeles(agendamentoSelecionado);
+                    var descontos = AdicionaDescontosNaListaERetornaDescontos(agendamentoSelecionado);
 
-                var valorParcial = AdicionaServicosERetornaValorDaSomaDeles(atendimentoSelecionado);
-                var descontos = AdicionaDescontosNaListaERetornaDescontos(atendimentoSelecionado);
-
-                caixaTextoValorParcial.Text = $"R$ {valorParcial}";
-                caixaTextoDesconto.Text = $"R$ {descontos}";
-                caixaTextoTotal.Text = $"R$ {valorParcial - descontos}";
+                    caixaTextoValorParcial.Text = $"R$ {valorParcial}";
+                    caixaTextoDesconto.Text = $"R$ {descontos}";
+                    caixaTextoTotal.Text = $"R$ {valorParcial - descontos}";
+                }
             }
 
         }
 
         private void botaoFinalizar_Click(object sender, EventArgs e)
         {
-            if(_atendimentos == null || _atendimentos.Count == 0)
+            if (_agendamentos == null || _agendamentos.Count == 0)
             {
-                MessageBox.Show("Não existem atendimentos no dia de hoje para serem finalizados", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show("Não existem agendamentos no dia de hoje para serem finalizados", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            if (gridAtendimentos.SelectedRows?.Count == 0)
+            else if (gridAgendamentos.SelectedRows?.Count == 0)
             {
-                MessageBox.Show("Selecione um atendimento para finalizar", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show("Selecione um agendamento para finalizar", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            try
+            else
             {
-                var atendimentoSelecionado = BuscaAtendimentoSelecionado();
-
-                if(atendimentoSelecionado.Data.Date != DateTime.Now.Date)
+                try
                 {
-                    MessageBox.Show("Não é possivel finalizar um atendimento com data diferente de hoje", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    var agendamentoSelecionado = BuscaAgendamentoSelecionado();
+
+                    if (agendamentoSelecionado.Data.Date != DateTime.Now.Date)
+                    {
+                        MessageBox.Show("Não é possivel finalizar um agendamento com data diferente de hoje", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        var desejaFinalizarAgendamento = MessageBox.Show("Deseja realmente finalizar o agendamento?", "Atênção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                        if (desejaFinalizarAgendamento == DialogResult.Yes)
+                        {
+                            var financeiro = new Financeiro();
+
+                            financeiro.Total = decimal.Parse(caixaTextoTotal.Text.Replace("R$ ", ""));
+                            financeiro.ValorParcial = decimal.Parse(caixaTextoValorParcial.Text.Replace("R$ ", ""));
+                            financeiro.DescontoAplicado = decimal.Parse(caixaTextoDesconto.Text.Replace("R$ ", ""));
+                            agendamentoSelecionado.Concluido = true;
+                            financeiro.Agendamento = agendamentoSelecionado;
+                            financeiro.Descontos = _promocoesDentroDaLista;
+
+                            _contratoFinanceiroRepositorio.Salvar(financeiro);
+
+                            _contratoAgendamentoRepositorio.Atualizar(financeiro.Agendamento);
+
+                            MessageBox.Show("Finalizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            AdicionarListaNoGrid(_contratoAgendamentoRepositorio.ObterTodos(financeiro.Agendamento.Data));
+                        }
+                    }
                 }
-
-                var desejaFinalizarAtendimento = MessageBox.Show("Deseja realmente finalizar o atendimento?", "Atênção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if(desejaFinalizarAtendimento == DialogResult.No)
-                    return;
-
-                var financeiro = new Financeiro();
-
-                financeiro.Total = decimal.Parse(caixaTextoTotal.Text.Replace("R$ ", ""));
-                financeiro.ValorParcial = decimal.Parse(caixaTextoValorParcial.Text.Replace("R$ ", ""));
-                financeiro.DescontoAplicado = decimal.Parse(caixaTextoDesconto.Text.Replace("R$ ", ""));
-                atendimentoSelecionado.Concluido = true;
-                financeiro.Atendimento = atendimentoSelecionado;
-                financeiro.Descontos = _promocoesDentroDaLista;
-
-                _contratoFinanceiroRepositorio.Salvar(financeiro);
-
-                _contratoAtendimentoRepositorio.Atualizar(financeiro.Atendimento);
-
-                MessageBox.Show("Finalizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                AdicionarListaNoGrid(_contratoAtendimentoRepositorio.ObterTodos(financeiro.Atendimento.Data));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

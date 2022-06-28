@@ -34,13 +34,13 @@ partial class PrincipalTela
             this.botaoClientes = new System.Windows.Forms.Button();
             this.botaoDescontos = new System.Windows.Forms.Button();
             this.botaoServicos = new System.Windows.Forms.Button();
-            this.botaoAtendimentos = new System.Windows.Forms.Button();
+            this.botaoAgendamentos = new System.Windows.Forms.Button();
             this.painelLogo = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.painelTopo = new System.Windows.Forms.Panel();
-            this.botaoConcluirAtendimento = new System.Windows.Forms.Button();
+            this.botaoConcluirAgendamento = new System.Windows.Forms.Button();
             this.painelCentral = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.painelLateral.SuspendLayout();
@@ -56,7 +56,7 @@ partial class PrincipalTela
             this.painelLateral.Controls.Add(this.botaoClientes);
             this.painelLateral.Controls.Add(this.botaoDescontos);
             this.painelLateral.Controls.Add(this.botaoServicos);
-            this.painelLateral.Controls.Add(this.botaoAtendimentos);
+            this.painelLateral.Controls.Add(this.botaoAgendamentos);
             this.painelLateral.Controls.Add(this.painelLogo);
             this.painelLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.painelLateral.Location = new System.Drawing.Point(0, 0);
@@ -75,7 +75,7 @@ partial class PrincipalTela
             this.botaoFinanceiro.Name = "botaoFinanceiro";
             this.botaoFinanceiro.Size = new System.Drawing.Size(142, 50);
             this.botaoFinanceiro.TabIndex = 5;
-            this.botaoFinanceiro.Text = "Atendimentos";
+            this.botaoFinanceiro.Text = "Financeiro";
             this.botaoFinanceiro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.botaoFinanceiro.UseVisualStyleBackColor = false;
             this.botaoFinanceiro.Click += new System.EventHandler(this.botaoFinanceiro_Click);
@@ -128,21 +128,21 @@ partial class PrincipalTela
             this.botaoServicos.UseVisualStyleBackColor = false;
             this.botaoServicos.Click += new System.EventHandler(this.botaoServicos_Click);
             // 
-            // botaoAtendimentos
+            // botaoAgendamentos
             // 
-            this.botaoAtendimentos.BackColor = System.Drawing.Color.Blue;
-            this.botaoAtendimentos.FlatAppearance.BorderSize = 0;
-            this.botaoAtendimentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botaoAtendimentos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.botaoAtendimentos.ForeColor = System.Drawing.Color.White;
-            this.botaoAtendimentos.Location = new System.Drawing.Point(0, 113);
-            this.botaoAtendimentos.Name = "botaoAtendimentos";
-            this.botaoAtendimentos.Size = new System.Drawing.Size(142, 50);
-            this.botaoAtendimentos.TabIndex = 1;
-            this.botaoAtendimentos.Text = "Agenda";
-            this.botaoAtendimentos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.botaoAtendimentos.UseVisualStyleBackColor = false;
-            this.botaoAtendimentos.Click += new System.EventHandler(this.botaoAtendimentos_Click);
+            this.botaoAgendamentos.BackColor = System.Drawing.Color.Blue;
+            this.botaoAgendamentos.FlatAppearance.BorderSize = 0;
+            this.botaoAgendamentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botaoAgendamentos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.botaoAgendamentos.ForeColor = System.Drawing.Color.White;
+            this.botaoAgendamentos.Location = new System.Drawing.Point(0, 113);
+            this.botaoAgendamentos.Name = "botaoAgendamentos";
+            this.botaoAgendamentos.Size = new System.Drawing.Size(142, 50);
+            this.botaoAgendamentos.TabIndex = 1;
+            this.botaoAgendamentos.Text = "Agenda";
+            this.botaoAgendamentos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.botaoAgendamentos.UseVisualStyleBackColor = false;
+            this.botaoAgendamentos.Click += new System.EventHandler(this.botaoAgendamentos_Click);
             // 
             // painelLogo
             // 
@@ -196,17 +196,17 @@ partial class PrincipalTela
             this.painelTopo.Size = new System.Drawing.Size(896, 86);
             this.painelTopo.TabIndex = 1;
             // 
-            // botaoConcluirAtendimento
+            // botaoConcluirAgendamento
             // 
-            this.botaoConcluirAtendimento.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.botaoConcluirAtendimento.Location = new System.Drawing.Point(696, 4);
-            this.botaoConcluirAtendimento.Name = "botaoConcluirAtendimento";
-            this.botaoConcluirAtendimento.Size = new System.Drawing.Size(176, 34);
-            this.botaoConcluirAtendimento.TabIndex = 8;
-            this.botaoConcluirAtendimento.Text = "Finalizar atendimentos";
-            this.botaoConcluirAtendimento.UseVisualStyleBackColor = true;
-            this.botaoConcluirAtendimento.Visible = false;
-            this.botaoConcluirAtendimento.Click += new System.EventHandler(this.botaoConcluirAtendimento_Click);
+            this.botaoConcluirAgendamento.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.botaoConcluirAgendamento.Location = new System.Drawing.Point(696, 4);
+            this.botaoConcluirAgendamento.Name = "botaoConcluirAgendamento";
+            this.botaoConcluirAgendamento.Size = new System.Drawing.Size(176, 34);
+            this.botaoConcluirAgendamento.TabIndex = 8;
+            this.botaoConcluirAgendamento.Text = "Fechar agendamento";
+            this.botaoConcluirAgendamento.UseVisualStyleBackColor = true;
+            this.botaoConcluirAgendamento.Visible = false;
+            this.botaoConcluirAgendamento.Click += new System.EventHandler(this.botaoConcluirAgendamento_Click);
             // 
             // painelCentral
             // 
@@ -220,7 +220,7 @@ partial class PrincipalTela
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.botaoConcluirAtendimento);
+            this.panel1.Controls.Add(this.botaoConcluirAgendamento);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(142, 589);
             this.panel1.Name = "panel1";
@@ -257,7 +257,7 @@ partial class PrincipalTela
 
     private Panel painelLateral;
     private Panel painelTopo;
-    private Button botaoAtendimentos;
+    private Button botaoAgendamentos;
     private Panel painelLogo;
     private Button botaoFinanceiro;
     private Button botaoClientes;
@@ -266,7 +266,7 @@ partial class PrincipalTela
     private Label label2;
     private Label label1;
     private Panel painelCentral;
-    private Button botaoConcluirAtendimento;
+    private Button botaoConcluirAgendamento;
     private Panel panel1;
     private Panel panel2;
 }

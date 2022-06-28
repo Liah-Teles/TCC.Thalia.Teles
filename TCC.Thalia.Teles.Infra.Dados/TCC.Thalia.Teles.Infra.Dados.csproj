@@ -8,12 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Features\Agendamentos\**" />
-      <EmbeddedResource Remove="Features\Agendamentos\**" />
-      <None Remove="Features\Agendamentos\**" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\TCC.Thalia.Teles.Dominio\TCC.Thalia.Teles.Dominio.csproj" />
     </ItemGroup>
 

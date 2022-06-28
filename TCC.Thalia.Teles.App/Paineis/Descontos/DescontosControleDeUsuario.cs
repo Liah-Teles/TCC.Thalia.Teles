@@ -5,12 +5,12 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
 {
     public partial class DescontosControleDeUsuario : UserControl
     {
-        private ContratoDescontoRepositorio _repositorioCsv;
+        private ContratoDescontoRepositorio _repositorioCsvDescontos;
         private ContratoServicoRepositorio _repositorioCsvServico;
         public DescontosControleDeUsuario(ContratoDescontoRepositorio repositorioCsv, ContratoServicoRepositorio repositorioCsvServico)
         {
             InitializeComponent();
-            _repositorioCsv = repositorioCsv;
+            _repositorioCsvDescontos = repositorioCsv;
             _repositorioCsvServico = repositorioCsvServico;
 
             AtualizaGrid();
@@ -24,7 +24,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
         {
             try
             {
-                var todosDescontos = _repositorioCsv.ObterTodos();
+                var todosDescontos = _repositorioCsvDescontos.ObterTodos();
 
                 List<Desconto> descontosValidos = new List<Desconto>();
 
@@ -32,7 +32,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
                 {
                     if(desconto.DataFinal < DateTime.Now)
                     {
-                        _repositorioCsv.Deletar(desconto.Id);
+                        _repositorioCsvDescontos.Deletar(desconto.Id);
                     }
 
                     descontosValidos.Add(desconto);
@@ -68,20 +68,20 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
                 if (servicos == null || servicos.Count == 0)
                 {
                     MessageBox.Show("Adicione serviços antes de criar uma desconto", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
                 }
-
-                var criarDescontoTela = new AdicionarDescontoTela(servicos);
-
-                var resultadoDialogo = criarDescontoTela.ShowDialog();
-
-                if (resultadoDialogo == DialogResult.Yes)
+                else
                 {
-                    _repositorioCsv.Salvar(criarDescontoTela.ObterDesconto());
-                    MessageBox.Show("Inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    var criarDescontoTela = new AdicionarDescontoTela(servicos);
 
-                AtualizaGrid();
+                    var resultadoDialogo = criarDescontoTela.ShowDialog();
+
+                    if (resultadoDialogo == DialogResult.Yes)
+                    {
+                        _repositorioCsvDescontos.Salvar(criarDescontoTela.ObterDesconto());
+                        MessageBox.Show("Inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AtualizaGrid();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -95,15 +95,14 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
             {
                 var linha = gridDescontos.SelectedRows[0];
 
-                var id = (int)linha.Cells[0].Value;
-                var nome = linha.Cells[1].Value;
+                var id = int.Parse($"{linha.Cells[0].Value}");
+                var nome = $"{linha.Cells[1].Value}";
 
                 var resultado = MessageBox.Show($"Deseja realmente remover a desconto: {nome}?", "Atênção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.Yes)
                 {
-                    _repositorioCsv.Deletar(id);
-
+                    _repositorioCsvDescontos.Deletar(id);
                     AtualizaGrid();
                 }
             }

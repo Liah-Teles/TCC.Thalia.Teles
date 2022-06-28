@@ -24,7 +24,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
 
         public void AtualizaGrid(DateTime data)
         {
-            gridAtendimentos.Rows.Clear();
+            gridAgendamentos.Rows.Clear();
             caixaTextoTotalParcial.Text = $"";
             caixaTextoDescontos.Text = $"";
             caixaTextoTotal.Text = $"";
@@ -36,7 +36,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
                 _ultimaDataSelecionada = data;
             }
 
-            _listaFinanceiroMesSelecionado = _listaConcluidosNoAno.Where(financeiro => financeiro.Atendimento.Data.Month == data.Month).ToList();
+            _listaFinanceiroMesSelecionado = _listaConcluidosNoAno.Where(financeiro => financeiro.Agendamento.Data.Month == data.Month).ToList();
 
 
             decimal valoresParciaisGerais = 0;
@@ -46,8 +46,8 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
             foreach (var financeiro in _listaFinanceiroMesSelecionado)
             {
                 var id = financeiro.Id;
-                var cliente = financeiro.Atendimento.Cliente;
-                var cpf = financeiro.Atendimento.ClienteCpf;
+                var cliente = financeiro.Agendamento.Cliente;
+                var cpf = financeiro.Agendamento.ClienteCpf;
                 var valorParcial = financeiro.ValorParcial;
                 var valorDesconto = financeiro.DescontoAplicado;
                 var valorTotal = financeiro.Total;
@@ -56,7 +56,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
                 descontosGerais += valorDesconto;
                 totalGeral += valorTotal;
 
-                gridAtendimentos.Rows.Add(id, cliente, cpf, $"R$ {valorParcial}", $"R$ {valorDesconto}", $"R$ {valorTotal}");
+                gridAgendamentos.Rows.Add(id, cliente, cpf, $"R$ {valorParcial}", $"R$ {valorDesconto}", $"R$ {valorTotal}");
             }
 
             caixaTextoTotalParcial.Text = $"R$ {valoresParciaisGerais}";
@@ -72,36 +72,35 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
             gridServicos.ClearSelection();
         }
 
-        private void gridAtendimentos_SelectionChanged(object sender, EventArgs e)
+        private void gridAgendamentos_SelectionChanged(object sender, EventArgs e)
         {
             gridServicos.Rows.Clear();
 
-            if (gridAtendimentos.SelectedRows.Count == 0)
+            if (gridAgendamentos.SelectedRows.Count != 0)
             {
-                return;
+                var agendamentoLinha = gridAgendamentos.SelectedRows[0];
+
+                var idFinanceiroSelecionado = (int)agendamentoLinha.Cells[0].Value;
+
+                var financeiroSelecionado = _listaFinanceiroMesSelecionado.FirstOrDefault(financeiro => financeiro.Id == idFinanceiroSelecionado);
+
+                if (financeiroSelecionado == null)
+                {
+                    MessageBox.Show("Erro ao buscar agendamento selecionado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    decimal totalServicos = 0M;
+                    caixaTextoTotalServiços.Text = $"";
+                    foreach (var servico in financeiroSelecionado.Agendamento.Servicos)
+                    {
+                        gridServicos.Rows.Add(servico.Nome, $"R$ {(servico.Valor + 0.00M)}");
+                        totalServicos += servico.Valor;
+                    }
+                    gridServicos.ClearSelection();
+                    caixaTextoTotalServiços.Text = $"R$ {totalServicos}";
+                }
             }
-
-            var atendimentoLinha = gridAtendimentos.SelectedRows[0];
-
-            var idFinanceiroSelecionado = (int)atendimentoLinha.Cells[0].Value;
-
-            var financeiroSelecionado = _listaFinanceiroMesSelecionado.FirstOrDefault(financeiro => financeiro.Id == idFinanceiroSelecionado);
-
-            if (financeiroSelecionado == null)
-            {
-                MessageBox.Show("Erro ao buscar atendimento selecionado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            decimal totalServicos = 0M;
-            caixaTextoTotalServiços.Text = $"";
-            foreach (var servico in financeiroSelecionado.Atendimento.Servicos)
-            {
-                gridServicos.Rows.Add(servico.Nome, $"R$ {(servico.Valor + 0.00M)}");
-                totalServicos += servico.Valor;
-            }
-            gridServicos.ClearSelection();
-            caixaTextoTotalServiços.Text = $"R$ {totalServicos}";
         }
 
         private void caixaDataSelecionada_ValueChanged(object sender, EventArgs e)

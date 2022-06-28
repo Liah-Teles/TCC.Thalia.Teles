@@ -5,7 +5,6 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
     public partial class AdicionarServicoTela : Form
     {
         private Servico _servico;
-        private int _id = 0;
 
         public AdicionarServicoTela(Servico servico)
         {
@@ -13,14 +12,13 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
 
             if (servico != null)
             {
+                _servico = servico;
+
                 this.Text = "Editar serviço";
                 caixaTextoNome.Text = servico.Nome;
                 caixaTextoNome.Enabled = false;
 
                 caixaNumericaValor.Value = servico.Valor;
-
-                _servico = servico;
-                _id = servico.Id;
             }
         }
 
@@ -30,23 +28,24 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
         }
         private void botaoSalvar_Click(object sender, EventArgs e)
         {
-
-            _servico = new Servico
+            if (_servico == null)
             {
-                Id = _id,
-                Nome = caixaTextoNome.Text,
-                Valor = caixaNumericaValor.Value + 0.00M
-            };
+                _servico = new Servico();
+            }
+
+            _servico.Nome = caixaTextoNome.Text;
+            _servico.Valor = caixaNumericaValor.Value + 0.00M;
 
             var mensagem = _servico.ObterMensagemNaoValidado();
 
             if (string.IsNullOrEmpty(mensagem))
             {
                 DialogResult = DialogResult.Yes;
-                return;
             }
-
-            MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

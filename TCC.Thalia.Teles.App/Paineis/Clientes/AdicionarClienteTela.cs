@@ -5,7 +5,6 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
     public partial class AdicionarClienteTela : Form
     {
         private Cliente _cliente;
-        private int _id = 0;
 
         public AdicionarClienteTela(Cliente cliente)
         {
@@ -16,7 +15,6 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
             if (_cliente != null)
             {
                 this.Text = "Editar cliente";
-                _id = _cliente.Id;
                 caixaDeTextoNome.Text = _cliente.Nome;
                 caixaDeTextoEndereco.Text = _cliente.Endereco;
                 caixaTextoMascaraCelular.Text = _cliente.Celular;
@@ -31,9 +29,14 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
 
         private void botaoSalvar_Click(object sender, EventArgs e)
         {
+            if(_cliente == null)
+            {
+                _cliente = new Cliente();
+            }
+
             _cliente = new Cliente
             {
-                Id = _id,
+                Id = _cliente.Id,
                 Nome = caixaDeTextoNome.Text,
                 Endereco = caixaDeTextoEndereco.Text,
                 Celular = caixaTextoMascaraCelular.Text,
@@ -45,10 +48,12 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
             if (string.IsNullOrEmpty(mensagem))
             {
                 DialogResult = DialogResult.Yes;
-                return;
+            }
+            else
+            {
+                MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            MessageBox.Show(mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

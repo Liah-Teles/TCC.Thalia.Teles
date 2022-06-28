@@ -1,8 +1,8 @@
 ﻿using TCC.Thalia.Teles.Dominio.Features.Servicos;
 
-namespace TCC.Thalia.Teles.Dominio.Features.Atendimentos;
+namespace TCC.Thalia.Teles.Dominio.Features.Agendamentos;
 
-public class Atendimento
+public class Agendamento
 {
     public int Id { get; set; }
     public string Cliente { get; set; }

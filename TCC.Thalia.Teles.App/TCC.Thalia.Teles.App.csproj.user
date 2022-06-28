@@ -4,7 +4,10 @@
     <_LastSelectedProfileId>C:\TCC Thalia\TCC.Thalia.Teles\TCC.Thalia.Teles.App\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Paineis\Atendimentos\AdicionarAtendimentoTela.cs">
+    <Compile Update="LoginTela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Paineis\Agendamentos\AdicionarAgendamentoTela.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Paineis\Clientes\AdicionarClienteTela.cs">
@@ -25,11 +28,16 @@
     <Compile Update="Paineis\Servicos\ServicosControleDeUsuario.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="TelaPrincipal.cs">
+    <Compile Update="PrincipalTela.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Paineis\Atendimentos\AtendimentosControleDeUsuario.cs">
+    <Compile Update="Paineis\Agendamentos\AgendamentosControleDeUsuario.cs">
       <SubType>UserControl</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Paineis\Financeiros\FinanceiroControleDeUsuario.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

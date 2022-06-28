@@ -1,6 +1,6 @@
-﻿namespace TCC.Thalia.Teles.App.Paineis.Atendimentos
+﻿namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
 {
-    partial class AdicionarAtendimentoTela
+    partial class AdicionarAgendamentoTela
     {
         /// <summary>
         /// Required designer variable.
@@ -135,7 +135,7 @@
             this.colunaValorServico.ReadOnly = true;
             this.colunaValorServico.Width = 60;
             // 
-            // AdicionarAtendimentoTela
+            // AdicionarAgendamentoTela
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -152,12 +152,12 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AdicionarAtendimentoTela";
+            this.Name = "AdicionarAgendamentoTela";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Adicionar atendimento";
-            this.Load += new System.EventHandler(this.AdicionarAtendimentoTela_Load);
+            this.Text = "Adicionar agendamento";
+            this.Load += new System.EventHandler(this.AdicionarAgendamentoTela_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridServicos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
