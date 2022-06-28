@@ -5,11 +5,12 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Servicos
     public class ServicoCSVRepositorio : ContratoServicoRepositorio
     {
         private string _localizacaoArquivoCsv;
+        private string _diretorio;
 
-        public ServicoCSVRepositorio(string localizacaoArquivoCsv)
+        public ServicoCSVRepositorio(string diretorioParaoArquivo)
         {
-            Directory.CreateDirectory(localizacaoArquivoCsv);
-            _localizacaoArquivoCsv = $"{localizacaoArquivoCsv}\\Servicos.csv";
+            _diretorio = diretorioParaoArquivo;
+            _localizacaoArquivoCsv = $"{diretorioParaoArquivo}\\Servicos.csv";
         }
 
         public void Atualizar(Servico servico)
@@ -53,6 +54,8 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Servicos
 
         public List<Servico> ObterTodos()
         {
+            Directory.CreateDirectory(_diretorio);
+
             var listaParaRetornar = new List<Servico>();
             try
             {

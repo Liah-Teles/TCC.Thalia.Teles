@@ -5,11 +5,12 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Financeiros
     public class FinanceiroCSVRepositorio : ContratoFinanceiroRepositorio
     {
         private string _localizacaoArquivoCsv;
+        private string _diretorio;
 
-        public FinanceiroCSVRepositorio(string localizacaoArquivoCsv)
+        public FinanceiroCSVRepositorio(string diretorioParaOArquivo)
         {
-            Directory.CreateDirectory(localizacaoArquivoCsv);
-            _localizacaoArquivoCsv = $"{localizacaoArquivoCsv}\\Financeiro.csv";
+            _diretorio = diretorioParaOArquivo;
+            _localizacaoArquivoCsv = $"{diretorioParaOArquivo}\\Financeiro.csv";
         }
 
         public void Atualizar(Financeiro financeiro)
@@ -56,6 +57,7 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Financeiros
 
         public List<Financeiro> ObterTodos()
         {
+            Directory.CreateDirectory(_diretorio);
             var listaParaRetornar = new List<Financeiro>();
             try
             {

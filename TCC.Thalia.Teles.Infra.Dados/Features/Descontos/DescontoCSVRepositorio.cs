@@ -5,11 +5,12 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Descontos
     public class DescontoCSVRepositorio : ContratoDescontoRepositorio
     {
         private string _localizacaoArquivoCsv;
+        private string _diretorio;
 
-        public DescontoCSVRepositorio(string localizacaoArquivoCsv)
+        public DescontoCSVRepositorio(string diretorioParaOArquivo)
         {
-            Directory.CreateDirectory(localizacaoArquivoCsv);
-            _localizacaoArquivoCsv = $"{localizacaoArquivoCsv}\\Descontos.csv";
+            _diretorio = diretorioParaOArquivo;
+            _localizacaoArquivoCsv = $"{diretorioParaOArquivo}\\Descontos.csv";
         }
 
         public void Atualizar(Desconto desconto)
@@ -53,6 +54,8 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Descontos
 
         public List<Desconto> ObterTodos()
         {
+            Directory.CreateDirectory(_diretorio);
+
             var listaParaRetornar = new List<Desconto>();
             try
             {

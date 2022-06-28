@@ -4,13 +4,13 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Clientes
 {
     public class ClienteCSVRepositorio : ContratoClienteRepositorio
     {
+        private string _diretorio;
         private string _localizacaoArquivoCsv;
 
-        public ClienteCSVRepositorio(string localizacaoArquivoCsv)
+        public ClienteCSVRepositorio(string diretorioParaOArquivo)
         {
-            Directory.CreateDirectory(localizacaoArquivoCsv);
-
-            _localizacaoArquivoCsv = $"{localizacaoArquivoCsv}\\Clientes.csv";
+            _diretorio = diretorioParaOArquivo;
+            _localizacaoArquivoCsv = $"{diretorioParaOArquivo}\\Clientes.csv";
         }
 
         public void Atualizar(Cliente cliente)
@@ -56,6 +56,8 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Clientes
 
         public List<Cliente> ObterTodos()
         {
+            Directory.CreateDirectory(_diretorio);
+
             var listaParaRetornar = new List<Cliente>();
             try
             {

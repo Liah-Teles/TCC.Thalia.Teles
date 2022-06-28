@@ -6,9 +6,9 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Agendamentos
     {
         private string _localizacaoCsv;
 
-        public AgendamentoCSVRepositorio(string localizacaoCsv)
+        public AgendamentoCSVRepositorio(string diretorioParaArquivos)
         {
-            _localizacaoCsv = localizacaoCsv;
+            _localizacaoCsv = diretorioParaArquivos;
         }
 
         public void Atualizar(Agendamento agendamento)
