@@ -18,13 +18,13 @@ public class Agendamento
     public string ObterMensagemNaoValidado()
     {
         if (string.IsNullOrEmpty(Cliente))
-            return $"Cliente é obrigatorio";
+            return $"Cliente é obrigatório";
         if (string.IsNullOrEmpty(ClienteCpf))
-            return $"CPF do cliente é obrigatorio";
+            return $"CPF do cliente é obrigatório";
         if (Data == default)
-            return "Data é obrigatoria";
+            return "Data é obrigatória";
         if (Servicos == null || Servicos.Count == 0)
-            return "Servicos é obrigatorio";
+            return "Serviços é obrigatório";
 
         return "";
     }

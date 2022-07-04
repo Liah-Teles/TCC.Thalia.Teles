@@ -80,7 +80,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
                 var nomeCliente = clienteLinha.Cells[1].Value;
                 var cpfCliente = clienteLinha.Cells[3].Value;
 
-                var resultado = MessageBox.Show($"Apagar cliente: {nomeCliente} irá remover todos os agendamentos do mesmo, continuar?", "Atênção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var resultado = MessageBox.Show($"Apagar cliente: {nomeCliente} irá remover todos os agendamentos do mesmo, continuar?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.Yes)
                 {
@@ -98,7 +98,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Clientes
             {
                 if (gridClientes.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show("Selecione um cliente para editar!", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Selecione um cliente para editar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {

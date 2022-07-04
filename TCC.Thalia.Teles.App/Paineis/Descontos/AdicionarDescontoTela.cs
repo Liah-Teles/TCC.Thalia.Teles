@@ -47,25 +47,25 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
         {
             if (servicoSelecionado == null)
             {
-                MessageBox.Show("Selecione um serviço", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione um serviço", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             if (caixaNumericaValor.Value >= servicoSelecionado.Valor)
             {
-                MessageBox.Show("Desconto não pode possuir valor maior que o serviço.", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Desconto não pode possuir valor maior que o serviço.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             if (caixaDataInicio.Value.Date >= caixaDataFinal.Value.Date)
             {
-                MessageBox.Show("Data de inicio não pode ser maior ou igual a data final.", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Data de início não pode ser maior ou igual a data final.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             if (caixaDataInicio.Value.Date < DateTime.Now.Date)
             {
-                MessageBox.Show("Data de inicio invalida, deve ser maior que data de hoje.", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Data de início inválida, deve ser maior que data de hoje.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 

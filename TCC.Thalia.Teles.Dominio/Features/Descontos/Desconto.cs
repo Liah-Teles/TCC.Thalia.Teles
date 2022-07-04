@@ -13,13 +13,13 @@
         public string ObterMensagemNaoValidado()
         {
             if (string.IsNullOrEmpty(NomeServico))
-                return $"Nome do serviço é obrigatorio";
+                return $"Nome do serviço é obrigatório";
             if (DataInicio == default)
-                return $"Data de inicio é obrigatoria";
+                return $"Data de início é obrigatória";
             if (DataFinal == default)
-                return $"Data final é obrigatoria";
+                return $"Data final é obrigatória";
             if (Valor <= 0)
-                return "Desconto deve ser um numero positivo valido";
+                return "Desconto deve ser um número positivo válido";
 
             NomeServico = NomeServico.Replace(";", ",");
 

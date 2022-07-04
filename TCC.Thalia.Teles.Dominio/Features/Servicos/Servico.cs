@@ -11,9 +11,9 @@
         public string ObterMensagemNaoValidado()
         {
             if (string.IsNullOrEmpty(Nome))
-                return "Nome do serviço é obrigatorio";
+                return "Nome do serviço é obrigatório";
             if (Valor <= 0)
-                return "Valor deve ser um numero positivo valido";
+                return "Valor deve ser um número positivo válido";
 
             Nome = Nome.Replace(";", ",");
 

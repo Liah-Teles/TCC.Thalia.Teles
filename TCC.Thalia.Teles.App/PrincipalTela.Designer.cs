@@ -52,6 +52,7 @@ partial class PrincipalTela
             // 
             // painelLateral
             // 
+            resources.ApplyResources(this.painelLateral, "painelLateral");
             this.painelLateral.BackColor = System.Drawing.Color.Blue;
             this.painelLateral.Controls.Add(this.botaoFinanceiro);
             this.painelLateral.Controls.Add(this.botaoClientes);
@@ -59,14 +60,13 @@ partial class PrincipalTela
             this.painelLateral.Controls.Add(this.botaoServicos);
             this.painelLateral.Controls.Add(this.botaoAgendamentos);
             this.painelLateral.Controls.Add(this.painelLogo);
-            resources.ApplyResources(this.painelLateral, "painelLateral");
             this.painelLateral.Name = "painelLateral";
             // 
             // botaoFinanceiro
             // 
+            resources.ApplyResources(this.botaoFinanceiro, "botaoFinanceiro");
             this.botaoFinanceiro.BackColor = System.Drawing.Color.Blue;
             this.botaoFinanceiro.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.botaoFinanceiro, "botaoFinanceiro");
             this.botaoFinanceiro.ForeColor = System.Drawing.Color.White;
             this.botaoFinanceiro.Name = "botaoFinanceiro";
             this.botaoFinanceiro.UseVisualStyleBackColor = false;
@@ -74,9 +74,9 @@ partial class PrincipalTela
             // 
             // botaoClientes
             // 
+            resources.ApplyResources(this.botaoClientes, "botaoClientes");
             this.botaoClientes.BackColor = System.Drawing.Color.Blue;
             this.botaoClientes.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.botaoClientes, "botaoClientes");
             this.botaoClientes.ForeColor = System.Drawing.Color.White;
             this.botaoClientes.Name = "botaoClientes";
             this.botaoClientes.UseVisualStyleBackColor = false;
@@ -84,9 +84,9 @@ partial class PrincipalTela
             // 
             // botaoDescontos
             // 
+            resources.ApplyResources(this.botaoDescontos, "botaoDescontos");
             this.botaoDescontos.BackColor = System.Drawing.Color.Blue;
             this.botaoDescontos.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.botaoDescontos, "botaoDescontos");
             this.botaoDescontos.ForeColor = System.Drawing.Color.White;
             this.botaoDescontos.Name = "botaoDescontos";
             this.botaoDescontos.UseVisualStyleBackColor = false;
@@ -94,9 +94,9 @@ partial class PrincipalTela
             // 
             // botaoServicos
             // 
+            resources.ApplyResources(this.botaoServicos, "botaoServicos");
             this.botaoServicos.BackColor = System.Drawing.Color.Blue;
             this.botaoServicos.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.botaoServicos, "botaoServicos");
             this.botaoServicos.ForeColor = System.Drawing.Color.White;
             this.botaoServicos.Name = "botaoServicos";
             this.botaoServicos.UseVisualStyleBackColor = false;
@@ -104,9 +104,9 @@ partial class PrincipalTela
             // 
             // botaoAgendamentos
             // 
+            resources.ApplyResources(this.botaoAgendamentos, "botaoAgendamentos");
             this.botaoAgendamentos.BackColor = System.Drawing.Color.Blue;
             this.botaoAgendamentos.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.botaoAgendamentos, "botaoAgendamentos");
             this.botaoAgendamentos.ForeColor = System.Drawing.Color.White;
             this.botaoAgendamentos.Name = "botaoAgendamentos";
             this.botaoAgendamentos.UseVisualStyleBackColor = false;
@@ -114,16 +114,16 @@ partial class PrincipalTela
             // 
             // painelLogo
             // 
-            this.painelLogo.Controls.Add(this.panel2);
             resources.ApplyResources(this.painelLogo, "painelLogo");
+            this.painelLogo.Controls.Add(this.panel2);
             this.painelLogo.Name = "painelLogo";
             // 
             // panel2
             // 
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.Color.DarkBlue;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
             // label2
@@ -141,8 +141,8 @@ partial class PrincipalTela
             // 
             // painelTopo
             // 
-            this.painelTopo.BackColor = System.Drawing.Color.DarkBlue;
             resources.ApplyResources(this.painelTopo, "painelTopo");
+            this.painelTopo.BackColor = System.Drawing.Color.DarkBlue;
             this.painelTopo.Name = "painelTopo";
             // 
             // botaoConcluirAgendamento
@@ -154,15 +154,15 @@ partial class PrincipalTela
             // 
             // painelCentral
             // 
-            this.painelCentral.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.painelCentral, "painelCentral");
+            this.painelCentral.BackColor = System.Drawing.Color.White;
             this.painelCentral.Name = "painelCentral";
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.botaoConcluirAgendamento);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // PrincipalTela

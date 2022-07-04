@@ -68,7 +68,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
                 var id = int.Parse($"{servicoLinha.Cells[0].Value}");
                 var nome = $"{servicoLinha.Cells[1].Value}";
 
-                var resultado = MessageBox.Show($"Deseja realmente remover o serviço: {nome}?", "Atênção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var resultado = MessageBox.Show($"Deseja realmente remover o serviço: {nome}?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.Yes)
                 {
@@ -83,7 +83,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Servicos
         {
             if (gridServicos.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecione um serviço para editar", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione um serviço para editar", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {

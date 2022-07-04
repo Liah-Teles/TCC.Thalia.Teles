@@ -57,368 +57,278 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="botaoFinanceiro.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="painelLogo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="botaoFinanceiro.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt</value>
-  </data>
   <data name="botaoFinanceiro.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 313</value>
   </data>
-  <data name="botaoFinanceiro.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 50</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="botaoFinanceiro.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="botaoFinanceiro.Text" xml:space="preserve">
-    <value>Financeiro</value>
-  </data>
-  <data name="botaoFinanceiro.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;botaoFinanceiro.Name" xml:space="preserve">
-    <value>botaoFinanceiro</value>
-  </data>
-  <data name="&gt;&gt;botaoFinanceiro.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;botaoFinanceiro.Parent" xml:space="preserve">
-    <value>painelLateral</value>
-  </data>
-  <data name="&gt;&gt;botaoFinanceiro.ZOrder" xml:space="preserve">
+  <data name="painelLateral.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
   <data name="botaoClientes.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="botaoClientes.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt</value>
-  </data>
-  <data name="botaoClientes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 263</value>
-  </data>
-  <data name="botaoClientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 50</value>
-  </data>
-  <data name="botaoClientes.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="botaoClientes.Text" xml:space="preserve">
-    <value>Clientes</value>
-  </data>
-  <data name="botaoClientes.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;botaoClientes.Name" xml:space="preserve">
-    <value>botaoClientes</value>
-  </data>
-  <data name="&gt;&gt;botaoClientes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;botaoClientes.Parent" xml:space="preserve">
-    <value>painelLateral</value>
-  </data>
-  <data name="&gt;&gt;botaoClientes.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="botaoDescontos.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="botaoDescontos.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt</value>
-  </data>
-  <data name="botaoDescontos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 213</value>
-  </data>
-  <data name="botaoDescontos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 50</value>
-  </data>
-  <data name="botaoDescontos.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="botaoDescontos.Text" xml:space="preserve">
-    <value>Descontos</value>
-  </data>
-  <data name="botaoDescontos.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;botaoDescontos.Name" xml:space="preserve">
-    <value>botaoDescontos</value>
-  </data>
-  <data name="&gt;&gt;botaoDescontos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;botaoDescontos.Parent" xml:space="preserve">
-    <value>painelLateral</value>
-  </data>
-  <data name="&gt;&gt;botaoDescontos.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="botaoServicos.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="botaoServicos.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt</value>
-  </data>
-  <data name="botaoServicos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 163</value>
-  </data>
-  <data name="botaoServicos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 50</value>
-  </data>
-  <data name="botaoServicos.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="botaoServicos.Text" xml:space="preserve">
-    <value>Serviços</value>
-  </data>
-  <data name="botaoServicos.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;botaoServicos.Name" xml:space="preserve">
-    <value>botaoServicos</value>
-  </data>
-  <data name="&gt;&gt;botaoServicos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;botaoServicos.Parent" xml:space="preserve">
-    <value>painelLateral</value>
-  </data>
-  <data name="&gt;&gt;botaoServicos.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="botaoAgendamentos.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="botaoAgendamentos.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
   </data>
-  <data name="botaoAgendamentos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 113</value>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="botaoAgendamentos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 50</value>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="botaoServicos.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt</value>
+  </data>
+  <data name="botaoClientes.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="botaoAgendamentos.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="botaoAgendamentos.Text" xml:space="preserve">
-    <value>Agenda</value>
+  <data name="&gt;&gt;botaoFinanceiro.Name" xml:space="preserve">
+    <value>botaoFinanceiro</value>
   </data>
-  <data name="botaoAgendamentos.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1038, 640</value>
   </data>
-  <data name="&gt;&gt;botaoAgendamentos.Name" xml:space="preserve">
-    <value>botaoAgendamentos</value>
-  </data>
-  <data name="&gt;&gt;botaoAgendamentos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;botaoAgendamentos.Parent" xml:space="preserve">
-    <value>painelLateral</value>
-  </data>
-  <data name="&gt;&gt;botaoAgendamentos.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 55</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 21</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value> Centro Estetico</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 36pt, style=Bold, Italic</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 65</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Oasis</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 86</value>
-  </data>
-  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>painelLogo</value>
-  </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="painelLogo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="painelLogo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="painelLogo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 107</value>
-  </data>
-  <data name="painelLogo.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;painelLogo.Name" xml:space="preserve">
-    <value>painelLogo</value>
-  </data>
-  <data name="&gt;&gt;painelLogo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;painelLogo.Parent" xml:space="preserve">
-    <value>painelLateral</value>
-  </data>
-  <data name="&gt;&gt;painelLogo.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="painelLateral.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="painelLateral.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="painelLateral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 640</value>
-  </data>
-  <data name="painelLateral.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;botaoServicos.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;painelLateral.Name" xml:space="preserve">
     <value>painelLateral</value>
   </data>
-  <data name="&gt;&gt;painelLateral.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="botaoDescontos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 50</value>
   </data>
-  <data name="&gt;&gt;painelLateral.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="botaoAgendamentos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 50</value>
   </data>
-  <data name="&gt;&gt;painelLateral.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="painelTopo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="painelTopo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 0</value>
-  </data>
-  <data name="painelTopo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>896, 86</value>
-  </data>
-  <data name="painelTopo.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;painelTopo.Name" xml:space="preserve">
-    <value>painelTopo</value>
-  </data>
-  <data name="&gt;&gt;painelTopo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;painelTopo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;painelTopo.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="botaoConcluirAgendamento.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
-  </data>
-  <data name="botaoConcluirAgendamento.Location" type="System.Drawing.Point, System.Drawing">
-    <value>696, 4</value>
-  </data>
-  <data name="botaoConcluirAgendamento.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 34</value>
-  </data>
-  <data name="botaoConcluirAgendamento.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="botaoConcluirAgendamento.Text" xml:space="preserve">
-    <value>Fechar agendamento</value>
-  </data>
-  <data name="botaoConcluirAgendamento.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;botaoConcluirAgendamento.Name" xml:space="preserve">
-    <value>botaoConcluirAgendamento</value>
-  </data>
-  <data name="&gt;&gt;botaoConcluirAgendamento.Type" xml:space="preserve">
+  <data name="&gt;&gt;botaoFinanceiro.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;botaoConcluirAgendamento.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;botaoConcluirAgendamento.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="painelCentral.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
   </data>
   <data name="painelCentral.Location" type="System.Drawing.Point, System.Drawing">
     <value>142, 86</value>
   </data>
+  <data name="&gt;&gt;painelLogo.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="botaoServicos.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="botaoClientes.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="botaoConcluirAgendamento.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="botaoFinanceiro.Text" xml:space="preserve">
+    <value>Financeiro</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="botaoAgendamentos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 113</value>
+  </data>
+  <data name="botaoFinanceiro.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>PrincipalTela</value>
+  </data>
+  <data name="botaoDescontos.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="botaoFinanceiro.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="painelCentral.Size" type="System.Drawing.Size, System.Drawing">
     <value>896, 554</value>
+  </data>
+  <data name="botaoClientes.Text" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="botaoDescontos.Text" xml:space="preserve">
+    <value>Descontos</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 36pt, style=Bold, Italic</value>
+  </data>
+  <data name="painelTopo.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 55</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="botaoConcluirAgendamento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>696, 4</value>
+  </data>
+  <data name="&gt;&gt;painelCentral.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;botaoAgendamentos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;botaoConcluirAgendamento.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;botaoClientes.Parent" xml:space="preserve">
+    <value>painelLateral</value>
+  </data>
+  <data name="painelCentral.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="botaoAgendamentos.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="painelLogo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 107</value>
+  </data>
+  <data name="painelTopo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>896, 86</value>
+  </data>
+  <data name="&gt;&gt;botaoClientes.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;painelLogo.Name" xml:space="preserve">
+    <value>painelLogo</value>
+  </data>
+  <data name="&gt;&gt;botaoServicos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="botaoFinanceiro.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 50</value>
+  </data>
+  <data name="&gt;&gt;botaoAgendamentos.Name" xml:space="preserve">
+    <value>botaoAgendamentos</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;botaoDescontos.Parent" xml:space="preserve">
+    <value>painelLateral</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;botaoConcluirAgendamento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="painelLogo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="botaoAgendamentos.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;painelCentral.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="botaoServicos.Text" xml:space="preserve">
+    <value>Serviços</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;painelTopo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;painelTopo.Name" xml:space="preserve">
+    <value>painelTopo</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Oasis Estetica</value>
+  </data>
+  <data name="&gt;&gt;botaoAgendamentos.Parent" xml:space="preserve">
+    <value>painelLateral</value>
+  </data>
+  <data name="painelLogo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;botaoConcluirAgendamento.Name" xml:space="preserve">
+    <value>botaoConcluirAgendamento</value>
+  </data>
+  <data name="botaoServicos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 50</value>
+  </data>
+  <data name="botaoClientes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt</value>
+  </data>
+  <data name="&gt;&gt;botaoFinanceiro.Parent" xml:space="preserve">
+    <value>painelLateral</value>
+  </data>
+  <data name="botaoClientes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 263</value>
+  </data>
+  <data name="botaoDescontos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 213</value>
+  </data>
+  <data name="botaoFinanceiro.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;botaoClientes.Name" xml:space="preserve">
+    <value>botaoClientes</value>
+  </data>
+  <data name="&gt;&gt;painelTopo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;botaoConcluirAgendamento.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 589</value>
+  </data>
+  <data name="botaoConcluirAgendamento.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;botaoClientes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="painelTopo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 0</value>
   </data>
   <data name="painelCentral.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -426,61 +336,151 @@
   <data name="&gt;&gt;painelCentral.Name" xml:space="preserve">
     <value>painelCentral</value>
   </data>
-  <data name="&gt;&gt;painelCentral.Type" xml:space="preserve">
+  <data name="painelTopo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="botaoConcluirAgendamento.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="painelLateral.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="painelLateral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 640</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;painelLateral.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Oasis</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 86</value>
+  </data>
+  <data name="&gt;&gt;botaoAgendamentos.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="botaoDescontos.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value> Centro Estetico</value>
+  </data>
+  <data name="&gt;&gt;painelLogo.Parent" xml:space="preserve">
+    <value>painelLateral</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 65</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;painelLateral.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;painelCentral.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;painelCentral.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;botaoServicos.Name" xml:space="preserve">
+    <value>botaoServicos</value>
+  </data>
+  <data name="&gt;&gt;painelLogo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="botaoServicos.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="botaoConcluirAgendamento.Text" xml:space="preserve">
+    <value>Fechar agendamento</value>
+  </data>
+  <data name="botaoConcluirAgendamento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 34</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
   </data>
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 589</value>
+  <data name="botaoServicos.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>896, 51</value>
   </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;botaoFinanceiro.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>painelLogo</value>
+  </data>
+  <data name="&gt;&gt;painelCentral.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;painelTopo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="botaoDescontos.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 21</value>
+  </data>
+  <data name="&gt;&gt;botaoDescontos.Name" xml:space="preserve">
+    <value>botaoDescontos</value>
+  </data>
+  <data name="botaoAgendamentos.Text" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="botaoDescontos.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="botaoFinanceiro.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="painelLateral.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="&gt;&gt;panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;botaoDescontos.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;botaoDescontos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="botaoClientes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 50</value>
+  </data>
+  <data name="&gt;&gt;botaoServicos.Parent" xml:space="preserve">
+    <value>painelLateral</value>
+  </data>
+  <data name="&gt;&gt;painelLateral.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="botaoServicos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 163</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>pt-BR</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1038, 640</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Oasis Estetica</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>PrincipalTela</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+    <value>pt-BR</value>
+  </metadata>
 </root>

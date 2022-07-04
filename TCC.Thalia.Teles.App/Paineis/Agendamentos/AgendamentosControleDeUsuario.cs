@@ -67,7 +67,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
                 var servicos = _repositorioArquivoCsvServico.ObterTodos();
                 if (servicos == null || servicos.Count == 0)
                 {
-                    MessageBox.Show("Adicione serviços antes de realizar um agendamento", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Adicione serviços antes de realizar um agendamento", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -75,7 +75,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
 
                     if (clientes == null || clientes.Count == 0)
                     {
-                        MessageBox.Show("Adicione clientes antes de realizar um agendamento", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Adicione clientes antes de realizar um agendamento", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -103,7 +103,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
         {
             if (_agendamentoSelecionado == null)
             {
-                MessageBox.Show("Selecione o agendamento para ser removido", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione o agendamento para ser removido", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -119,7 +119,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
             {
                 if (_agendamentoSelecionado == null)
                 {
-                    MessageBox.Show("Selecione o agendamento para ser editado", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Selecione o agendamento para ser editado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {

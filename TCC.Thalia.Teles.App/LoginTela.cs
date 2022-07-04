@@ -31,13 +31,13 @@ namespace TCC.Thalia.Teles.App
             }
             else
             {
-                MessageBox.Show("Usuário ou senha invalidos.", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Usuário ou senha inválidos.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void etiquetaMudarSenha_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Modifique no arquivo em: 'Confs\\conf.json", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Modifique no arquivo em: 'Confs\\conf.json", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

@@ -44,24 +44,24 @@ namespace TCC.Thalia.Teles.App.Paineis.Agendamentos
         {
             if (_clienteSelecionado == null)
             {
-                MessageBox.Show("Selecione um cliente para o agendamento", "Atênçao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione um cliente para o agendamento", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return true;
             }
             if (caixaDateHora.Value < DateTime.Now)
             {
-                MessageBox.Show("Impossivel salvar agendamento com data inferior a hoje", "Atênçao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Impossível salvar agendamento com data inferior a hoje", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return true;
             }
 
             if (caixaDateHora.Value > DateTime.Now.AddMonths(2))
             {
-                MessageBox.Show("Só podem ser realizados agendamentos para no maximo em dois meses.", "Atênçao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Só podem ser realizados agendamentos para no máximo dois meses.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return true;
             }
 
             if(_clienteSelecionado == null)
             {
-                MessageBox.Show("Selecione um cliente", "Atênçao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione um cliente", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return true;
             }
 

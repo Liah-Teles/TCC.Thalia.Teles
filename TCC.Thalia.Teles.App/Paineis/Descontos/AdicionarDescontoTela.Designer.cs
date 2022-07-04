@@ -132,7 +132,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 20);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Data Inicio:";
+            this.label4.Text = "Data Início:";
             // 
             // caixaDataFinal
             // 
@@ -149,9 +149,9 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(29, 95);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 20);
+            this.label5.Size = new System.Drawing.Size(79, 20);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Data final:";
+            this.label5.Text = "Data Final:";
             // 
             // AdicionarDescontoTela
             // 

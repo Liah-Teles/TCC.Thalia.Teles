@@ -85,7 +85,7 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Servicos
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro inesperado ao obter servicos", ex);
+                throw new Exception("Erro inesperado ao obter serviços", ex);
             }
         }
 
@@ -95,7 +95,7 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Servicos
 
             if (servicos.Any(cli => cli.Nome == servico.Nome))
             {
-                throw new Exception("Já existe um usuario com o documento informado");
+                throw new Exception("Já existe um usuário com o documento informado");
             }
 
             var ultimoServico = servicos.LastOrDefault();
@@ -137,7 +137,7 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Servicos
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao salvar servicos", ex);
+                throw new Exception("Erro ao salvar serviços", ex);
             }
         }
     }

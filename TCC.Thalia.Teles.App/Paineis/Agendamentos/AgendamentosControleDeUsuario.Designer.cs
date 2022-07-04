@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.gridAgenda = new System.Windows.Forms.DataGridView();
-            this.colunaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colunaHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colunaCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colunaCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.botaoAdicionar = new System.Windows.Forms.Button();
             this.calendario = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +37,10 @@
             this.colunaNomeServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colunaValorServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.botaoEditar = new System.Windows.Forms.Button();
+            this.colunaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colunaHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colunaCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colunaCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridAgenda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridServicos)).BeginInit();
             this.SuspendLayout();
@@ -72,36 +72,6 @@
             this.gridAgenda.Size = new System.Drawing.Size(660, 475);
             this.gridAgenda.TabIndex = 6;
             this.gridAgenda.SelectionChanged += new System.EventHandler(this.gridAgenda_SelectionChanged);
-            // 
-            // colunaId
-            // 
-            this.colunaId.HeaderText = "Id";
-            this.colunaId.Name = "colunaId";
-            this.colunaId.ReadOnly = true;
-            this.colunaId.Width = 50;
-            // 
-            // colunaHorario
-            // 
-            this.colunaHorario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colunaHorario.FillWeight = 131.9728F;
-            this.colunaHorario.HeaderText = "Horario";
-            this.colunaHorario.Name = "colunaHorario";
-            this.colunaHorario.ReadOnly = true;
-            // 
-            // colunaCliente
-            // 
-            this.colunaCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colunaCliente.FillWeight = 68.02721F;
-            this.colunaCliente.HeaderText = "Nome do Cliente";
-            this.colunaCliente.Name = "colunaCliente";
-            this.colunaCliente.ReadOnly = true;
-            // 
-            // colunaCpf
-            // 
-            this.colunaCpf.HeaderText = "CPF";
-            this.colunaCpf.Name = "colunaCpf";
-            this.colunaCpf.ReadOnly = true;
-            this.colunaCpf.Width = 150;
             // 
             // botaoAdicionar
             // 
@@ -192,6 +162,36 @@
             this.botaoEditar.UseVisualStyleBackColor = true;
             this.botaoEditar.Click += new System.EventHandler(this.botaoEditar_Click);
             // 
+            // colunaId
+            // 
+            this.colunaId.HeaderText = "Id";
+            this.colunaId.Name = "colunaId";
+            this.colunaId.ReadOnly = true;
+            this.colunaId.Width = 50;
+            // 
+            // colunaHorario
+            // 
+            this.colunaHorario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colunaHorario.FillWeight = 131.9728F;
+            this.colunaHorario.HeaderText = "Horário";
+            this.colunaHorario.Name = "colunaHorario";
+            this.colunaHorario.ReadOnly = true;
+            // 
+            // colunaCliente
+            // 
+            this.colunaCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colunaCliente.FillWeight = 68.02721F;
+            this.colunaCliente.HeaderText = "Nome do Cliente";
+            this.colunaCliente.Name = "colunaCliente";
+            this.colunaCliente.ReadOnly = true;
+            // 
+            // colunaCpf
+            // 
+            this.colunaCpf.HeaderText = "CPF";
+            this.colunaCpf.Name = "colunaCpf";
+            this.colunaCpf.ReadOnly = true;
+            this.colunaCpf.Width = 150;
+            // 
             // AgendamentosControleDeUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -221,15 +221,15 @@
         private Button botaoAdicionar;
         private MonthCalendar calendario;
         private DataGridView gridAgenda;
-        private DataGridViewTextBoxColumn colunaId;
-        private DataGridViewTextBoxColumn colunaHorario;
-        private DataGridViewTextBoxColumn colunaCliente;
         private Label label1;
-        private DataGridViewTextBoxColumn colunaCpf;
         private Button botaoRemover;
         private DataGridView gridServicos;
         private DataGridViewTextBoxColumn colunaNomeServico;
         private DataGridViewTextBoxColumn colunaValorServico;
         private Button botaoEditar;
+        private DataGridViewTextBoxColumn colunaId;
+        private DataGridViewTextBoxColumn colunaHorario;
+        private DataGridViewTextBoxColumn colunaCliente;
+        private DataGridViewTextBoxColumn colunaCpf;
     }
 }

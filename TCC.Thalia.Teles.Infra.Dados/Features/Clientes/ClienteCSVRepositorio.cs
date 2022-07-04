@@ -98,7 +98,7 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Clientes
 
             if (clientes.Any(cli => cli.Cpf == cliente.Cpf))
             {
-                throw new Exception("Já existe um usuario com o documento informado");
+                throw new Exception("Já existe um usuário com o documento informado");
             }
 
             var ultimoCliente = clientes.LastOrDefault();

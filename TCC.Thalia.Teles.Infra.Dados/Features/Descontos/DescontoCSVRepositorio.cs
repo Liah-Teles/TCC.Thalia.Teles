@@ -97,7 +97,7 @@ namespace TCC.Thalia.Teles.Infra.Dados.Features.Descontos
             {
                 if (descontos.Any(descontoExistente => (desconto.DataInicio >= descontoExistente.DataInicio && desconto.DataInicio <= descontoExistente.DataFinal)
                                                     || (desconto.DataFinal >= descontoExistente.DataInicio && desconto.DataFinal <= descontoExistente.DataFinal)))
-                    throw new Exception($"A data informada ja existe desconto cadastrado no serviço: {desconto.NomeServico}");
+                    throw new Exception($"A data informada já possui desconto cadastrado no serviço: {desconto.NomeServico}");
             }
 
             var ultimoDesconto = descontos.LastOrDefault();

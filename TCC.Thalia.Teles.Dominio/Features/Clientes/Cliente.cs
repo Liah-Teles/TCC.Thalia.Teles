@@ -13,22 +13,22 @@ public class Cliente
     public string ObterMensagemNaoValidado()
     {
         if (string.IsNullOrEmpty(Nome))
-            return $"Nome é obrigatorio";
+            return $"Nome é obrigatório";
 
         if (string.IsNullOrEmpty(Celular))
-            return "Celular é obrigatorio";
+            return "Celular é obrigatório";
 
         var celularSemCaracteresApenasNumeros = Celular.Replace("(", "").Replace(")", "").Replace("-", "").Trim();
 
         if(celularSemCaracteresApenasNumeros.Count() != 12)
-            return "Celular invalido";
+            return "Celular inválido";
 
         if (string.IsNullOrEmpty(Endereco))
-            return "Endereço é obrigatorio";
+            return "Endereço é obrigatório";
         if (string.IsNullOrEmpty(Cpf))
-            return "CPF é obrigatorio";
+            return "CPF é obrigatório";
         if(!ValidadorCPF.Valida(Cpf))
-            return "CPF não é valido";
+            return "CPF não é válido";
 
         Nome = Nome.Replace(";", ",");
         Celular = Celular.Replace(";", ",");

@@ -19,13 +19,13 @@ namespace TCC.Thalia.Teles.Dominio.Features.Financeiros
         public string ObterMensagemNaoValidado()
         {
             if (ValorParcial > 0)
-                return "Valor parcial é obrigatorio";
+                return "Valor parcial é obrigatório";
             if (Total > 0)
-                return "Valor total é obrigatorio";
+                return "Valor total é obrigatório";
             if (Agendamento == null)
-                return "Agendamento é obrigatorio";
+                return "Agendamento é obrigatório";
             if (Descontos.Count == 0)
-                return "Valor total é obrigatorio";
+                return "Valor total é obrigatório";
 
             return "";
         }

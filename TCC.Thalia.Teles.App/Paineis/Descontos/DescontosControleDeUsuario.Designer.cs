@@ -124,7 +124,7 @@
             // 
             // colunaDataInicio
             // 
-            this.colunaDataInicio.HeaderText = "Data inicio";
+            this.colunaDataInicio.HeaderText = "Data início";
             this.colunaDataInicio.Name = "colunaDataInicio";
             this.colunaDataInicio.ReadOnly = true;
             // 

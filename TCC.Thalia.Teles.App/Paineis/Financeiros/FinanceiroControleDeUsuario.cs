@@ -120,11 +120,11 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
         {
             if (_agendamentos == null || _agendamentos.Count == 0)
             {
-                MessageBox.Show("Não existem agendamentos no dia de hoje para serem finalizados", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Não existem agendamentos no dia de hoje para serem finalizados", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (gridAgendamentos.SelectedRows?.Count == 0)
             {
-                MessageBox.Show("Selecione um agendamento para finalizar", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione um agendamento para finalizar", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -134,11 +134,11 @@ namespace TCC.Thalia.Teles.App.Paineis.Financeiros
 
                     if (agendamentoSelecionado.Data.Date != DateTime.Now.Date)
                     {
-                        MessageBox.Show("Não é possivel finalizar um agendamento com data diferente de hoje", "Atênção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Não é possível finalizar um agendamento com data diferente de hoje", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
-                        var desejaFinalizarAgendamento = MessageBox.Show("Deseja realmente finalizar o agendamento?", "Atênção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        var desejaFinalizarAgendamento = MessageBox.Show("Deseja realmente finalizar o agendamento?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                         if (desejaFinalizarAgendamento == DialogResult.Yes)
                         {

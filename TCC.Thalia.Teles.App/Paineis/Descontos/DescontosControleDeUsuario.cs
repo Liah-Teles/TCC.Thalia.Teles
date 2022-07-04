@@ -99,7 +99,7 @@ namespace TCC.Thalia.Teles.App.Paineis.Descontos
                 var id = int.Parse($"{linha.Cells[0].Value}");
                 var nome = $"{linha.Cells[1].Value}";
 
-                var resultado = MessageBox.Show($"Deseja realmente remover a desconto: {nome}?", "Atênção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var resultado = MessageBox.Show($"Deseja realmente remover a desconto: {nome}?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.Yes)
                 {
